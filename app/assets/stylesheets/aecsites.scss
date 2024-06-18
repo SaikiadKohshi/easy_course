@@ -1,0 +1,127 @@
+// Place all the styles related to the aecsites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/* Easy Courceの部分 */
+.Home_theme{
+    text-align: center;
+    color: #AAFFFF;
+    
+    font-size: 90px; // これは文字の大きさを調整するもの
+    background-repeat: no-repeat;
+    
+    background-color: gray; //テスト用
+    
+    margin: 0%;
+}
+/* 福岡大學の部分　*/
+.Home_u{
+    text-align: right;
+
+    font-size: 22px;
+    color: #8B0000;
+}
+/* 科目の部分 */
+.cource{
+    height: 600px;
+    width: 100%;
+    background-image: url();
+    background-color: darkcyan;//テスト用
+    position: relative;
+}
+
+
+
+/* 生活の部分(最背景の部分) */
+.lifestyle{
+    height: 730px;
+    width: 100%;
+    background-image: url('university_life.jpeg');
+    position: relative; //親要素を設定する時に使うコード
+    //background-image: rgba(255, 255, 255, 0.562);//背景を明るく薄めるためのコード
+    background-repeat: no-repeat;
+    background-size: cover;//背景画像が画面いっぱいに表示され、縦横比も維持するためのコード
+    background-position: center;
+
+    //使わないコード
+    /*
+          //object-fit: cover;
+          //background-color: springgreen;//テスト用
+          //background-color: rgba(0, 0, 255, 0.219);//背景を暗めに薄くするためのコード
+          //display: inline-flex;//背景画像の上に文字や画像などを乗せたい時に使うコード
+    */
+}
+/* 生活の部分(前背景の部分) */
+.lifestyle p{
+    position: absolute;//子要素を設定する時に使うコード
+    background-color: #FF97C2;
+    border-radius: 20%;//背景色の角を丸めるためのコード
+    left: 9%;
+    top: 4%;
+    font-size: 50px;//文字のサイズを調整するためのコード
+    font-family: cursive;//文字の種類を決めるためのコード
+    color: white;
+    z-index: 2;//テキストを背景レイヤーの上に表示するためのコード
+    
+}
+/* 二つ目の背景画像 */
+.universitystyle{
+    position: absolute;
+    background-image: url('university_style.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 9%;
+    top: 63%;
+    left: 50%;
+    width: 22%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 2; // テキストと同じレベルで表示するためのコード
+}
+/* 大学生活のボタンの部分 */
+.universitystyle p{
+    aspect-ratio: 25/10;
+   //height: auto;
+    left: 36.7%;
+    top: 66.5%;
+    //margin: 0;
+    //padding: 10px 20px;
+    text-align: center;
+    color: aliceblue;
+    background-color: white;
+    font-size: 95%;
+    z-index: 3;//背景レイヤーの上に表示するためのコード
+}
+/* 背景を明るく薄めるためのレイヤーを追加 */
+.lifestyle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.562); //背景を明るく薄めるためのコード
+    z-index: 1;//オーバーレイが背景画像の上に表示されるようにするためのコード
+}
+/* コンテンツのスタイル */
+.lifestyle .content {
+    position: relative;
+    z-index: 3; //背景の上に表示するために z-index を設定するためのコード
+}
+
+
+
+/* Profileの部分　*/
+.profile{
+    height: 600px;
+    /* display: flexとalign-item: centerとjustify-content: centerの3つの設定によって箱の中の要素全体を中央の位置にできる */
+    display: flex;
+    align-items: center;
+    justify-content: center; // これは文字を真ん中にするためのコード
+    font-size: 32px;
+    font-weight: 30; // これは文字の太さを表示するもの
+    
+    background-color: bisque;//テスト用
+}

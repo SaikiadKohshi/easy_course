@@ -1,0 +1,23 @@
+<!-- ホームページを示す画像　-->
+<body>
+  <p class="Home_theme"> Easy Cource </p>
+  <p class="Home_u"> in 福岡大學　</p>
+  <!-- class="Target_audience"> 対象者：工学部電子情報工学科　-->
+ <!-- 科目、生活、プロフィールの3つを取り囲む部分　-->
+ <p class="cource">
+　 科目
+ </p>
+ <div class="lifestyle">
+  <p>Lifestyle</p>
+  <!-- ここに二つ目の背景画像を設ける -->
+  <div class="universitystyle">
+    <p>
+     <%=link_to '大学生活', :controller => "aecsites", :action => "universitylife" %>
+    </p>
+  </div>
+ </div>
+ <p class="profile">
+ 　プロフィール
+    <%= link_to 'Profile', :controller => "aecsites", :action => "profile" %>
+ </p>
+</body>
