@@ -9,6 +9,7 @@ Rails.application.routes.draw do
      
      get :profile
      get :universitylife
+     get :universitycourcelist
      end
   end
   

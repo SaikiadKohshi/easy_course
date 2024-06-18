@@ -4,9 +4,15 @@
   <p class="Home_u"> in 福岡大學　</p>
   <!-- class="Target_audience"> 対象者：工学部電子情報工学情報工学科　-->
  <!-- 科目、生活、プロフィールの3つを取り囲む部分　-->
- <p class="cource">
+ <div class="cource">
+  <p>Cource</p>
+  <div class="courselist">
+   <p>
+     <%=link_to '大学科目', :controller => "aecsites", :action => "universitycourcelist" %>
+   </p>
+  </div>
 　 科目
- </p>
+ </div>
  <div class="lifestyle">
   <p>Lifestyle</p>
   <!-- ここに二つ目の背景画像を設ける -->

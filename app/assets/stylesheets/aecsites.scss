@@ -22,13 +22,28 @@
     font-size: 22px;
     color: #8B0000;
 }
-/* 科目の部分 */
+/* 科目の部分(最背景の部分) */
 .cource{
     height: 600px;
     width: 100%;
     background-image: url();
     background-color: darkcyan;//テスト用
     position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;//背景画像が画面いっぱいに表示され、縦横比も維持するためのコード
+    background-position: center;
+
+}
+/* 科目の部分(前背景の部分) */
+.cource p{
+    background-color: gray;
+    border-radius: 20%;//背景色の角を丸めるためのコード
+    left: 9%;
+    top: 4%;
+    font-size: 50px;//文字のサイズを調整するためのコード
+    font-family: cursive;//文字の種類を決めるためのコード
+    color: white;
+    position: absolute;
 }
 
 

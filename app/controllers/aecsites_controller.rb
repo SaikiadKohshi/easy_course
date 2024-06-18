@@ -6,7 +6,8 @@ class AecsitesController < ApplicationController
     end
     def universitylife
     end
-
+    def universitycourcelist
+    end
 
     
 end
