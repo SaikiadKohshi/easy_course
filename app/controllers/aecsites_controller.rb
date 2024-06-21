@@ -8,6 +8,7 @@ class AecsitesController < ApplicationController
     end
     def universitycourcelist
     end
-
+    def commoncource
+    end
     
 end
