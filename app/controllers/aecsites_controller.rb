@@ -10,5 +10,7 @@ class AecsitesController < ApplicationController
     end
     def commoncource
     end
+    def tlcource
+    end
     
 end

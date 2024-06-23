@@ -11,6 +11,8 @@ Rails.application.routes.draw do
      get :universitylife
      get :universitycourcelist
      get :commoncource
+     get :tlcource
+     
      end
   end
   
