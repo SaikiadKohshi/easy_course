@@ -46,6 +46,57 @@
     position: absolute;
 }
 
+/* 科目の部分(前背景の部分かつ3つの科目を表示する部分) */
+.courcelist{
+    position: absolute;
+    /*background-image: url('university_style.png');*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 9%;
+    top: 63%;
+    left: 50%;
+    width: 100%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 2; // テキストと同じレベルで表示するためのコード
+}
+/* 共通教育科目の部分 */
+.courcelist .common{
+    aspect-ratio: 25/12;/* これはright: n%;を加えると連動する*/
+    
+    top: 66.5%;/*後で元に戻す*/
+    /*right: 6.4%;*/ /*これを設定するとbackground-colorのサイズがデカくなる*/
+    left: 13.4%;
+    /*text-align: center;*/
+    color: aliceblue;
+    background-color: white;
+    font-size: 95%;
+    z-index: 3;//背景レイヤーの上に表示するためのコード
+}
+/* 工学科共通科目の部分 */
+.courcelist .commontech{
+    aspect-ratio: 25/10;
+    left: 45.8%;
+    top: 66.5%;  
+    text-align: center;
+    color: aliceblue;
+    background-color: white;
+    font-size: 95%;
+    z-index: 3;//背景レイヤーの上に表示するためのコード
+}
+/* 電子情報工学科の部分 */
+.courcelist .tl{
+    aspect-ratio: 25/10; 
+    left: 76.4%;
+    top: 66.5%;
+    text-align: center;
+    /*right: 5.3%;*/ /*これを設定するとbackground-colorのサイズがデカくなる*/
+    color: aliceblue;
+    background-color: white;
+    font-size: 95%;
+    z-index: 3;//背景レイヤーの上に表示するためのコード
+}
 
 
 /* 生活の部分(最背景の部分) */
@@ -139,4 +190,59 @@
     font-weight: 30; // これは文字の太さを表示するもの
     
     background-color: bisque;//テスト用
+    position: relative;
 }
+
+/* Profileの文字の部分(前背景)*/
+.profile p{
+    position: absolute;
+    background-color: #FAF0E6; /* 肌色 */
+    border-radius: 20%;
+    left: 9%;
+    top: 4%;
+    font-size: 50px;
+    font-family: cursive;
+    color: white;
+    z-index: 2;
+}
+
+/* 二つ目の背景画像 */
+.profiledetail{
+    position: absolute;
+    /*background-image: url("");*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 9%;
+    top: 63%;
+    left: 50%;
+    width: 22%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    
+}
+
+/* 制作者のボタンの部分 */
+.profiledetail p{
+     aspect-ratio: 25/10;
+     left: 36.7%;
+     top: 66.5%;
+     text-align: center;
+     color: aliceblue;
+     background-color: wheat;
+     font-size: 95%;
+     z-index: 3;
+
+}
+/* 背景を明るく薄めるためのレイヤーを追加 */
+
+
+
+/**/
+
+/**/
+
+/**/
+
+/**/

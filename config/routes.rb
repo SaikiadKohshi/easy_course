@@ -9,7 +9,7 @@ Rails.application.routes.draw do
      
      get :profile
      get :universitylife
-     get :universitycourcelist
+     get :tchcourcelist
      get :commoncource
      get :tlcource
      
