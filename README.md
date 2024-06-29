@@ -25,6 +25,6 @@ Things you may want to cover:
 
 
 6/26
-git hubにコミットしても芝が生えない
+　git hubにコミットしても芝が生えない
 
 　
