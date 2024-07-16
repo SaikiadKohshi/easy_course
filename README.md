@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+6/26
+　git hubにpushしても芝が生えない
+メールアドレスを変えてないのに急に芝が生えなくなった
+
+　
