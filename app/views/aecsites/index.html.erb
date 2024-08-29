@@ -7,27 +7,34 @@
  <div class="cource">
   <p>Cource</p>
     <div class="courcelist">
-      <p class="common">
+      <div class="common">
         <!-- 一番左側に置く -->
-       <%=link_to '共通教養科目', :controller => "aecsites", :action => "commoncource" %>
-      </p>
-      <p class="commontech">
+       <div class="commonc">
+         <%=link_to '共通教養科目', :controller => "aecsites", :action => "commoncource" %>
+       </div>
+      </div>
+      <div class="commontech">
+       <div class="commontechc">
         <!-- 真ん中に置く -->
-       <%=link_to '工学科共通科目', :controller => "aecsites", :action => "tchcourcelist" %>
-      </p>
-      <p class="tl">
+        <%=link_to '工学科共通科目', :controller => "aecsites", :action => "tchcourcelist" %>
+       </div>
+      </div>
+      <div class="tl">
+       <div class="tlc">
         <!-- 一番右側に置く -->
-       <%=link_to '電子情報工学科', :controller => "aecsites", :action =>  "tlcource" %>
-      </p>
+        <%=link_to '電子情報工学科', :controller => "aecsites", :action =>  "tlcource" %>
+       </div>
+      </div>
     </div>
+
  </div>
  <div class="lifestyle">
   <p>Lifestyle</p>
   <!-- ここに二つ目の背景画像を設ける -->
   <div class="universitystyle">
-    <p>
+    <span class="universitysylec">
      <%=link_to '大学生活', :controller => "aecsites", :action => "universitylife" %>
-    </p>
+    </span>
   </div>
  </div>
  <div class="profile">

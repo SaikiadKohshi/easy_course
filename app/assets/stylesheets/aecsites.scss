@@ -27,7 +27,8 @@
     height: 600px;
     width: 100%;
     background-image: url();
-    background-color: darkcyan;//テスト用
+    /*background-color: darkcyan;//テスト用*/
+    background-image: url('university_cource.jpeg');
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;//背景画像が画面いっぱいに表示され、縦横比も維持するためのコード
@@ -49,53 +50,134 @@
 /* 科目の部分(前背景の部分かつ3つの科目を表示する部分) */
 .courcelist{
     position: absolute;
-    /*background-image: url('university_style.png');*/
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
     border-radius: 9%;
     top: 63%;
     left: 50%;
     width: 100%;
-    height: 60%;
+    height: 84%; //　3つの背景画像が全体に映るようにするために調整したもの
     transform: translate(-50%, -50%);
     z-index: 2; // テキストと同じレベルで表示するためのコード
 }
-/* 共通教育科目の部分 */
-.courcelist .common{
+/* 共通教育科目の背景画像の部分 */
+.common{
     aspect-ratio: 25/12;/* これはright: n%;を加えると連動する*/
-    
-    top: 66.5%;/*後で元に戻す*/
+    background-image: url('courcelist_common.png');
+    margin: 6%;
+    position: relative; //クラスcommoncの位置を調整するための親要素を書くためのコード
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 9%;
+    //font-size: 95%;
+    z-index: 3; //背景レイヤーの上に表示するためのコード //*この数値の値が大きいほど前にくるように
+
+    /* 使わないコード */
+    /*top: 66.5%;*//*後で元に戻す*/
     /*right: 6.4%;*/ /*これを設定するとbackground-colorのサイズがデカくなる*/
-    left: 13.4%;
-    /*text-align: center;*/
-    color: aliceblue;
-    background-color: white;
-    font-size: 95%;
-    z-index: 3;//背景レイヤーの上に表示するためのコード
+    /*left: 13.4%;*/
 }
-/* 工学科共通科目の部分 */
-.courcelist .commontech{
-    aspect-ratio: 25/10;
-    left: 45.8%;
-    top: 66.5%;  
+/* 共通教育科目の文字の部分 */
+.courcelist .commonc{
+    position: absolute; //クラスtlを親要素とする時、tlのdivの中だけ位置を調整するために子要素として定めるコード
+    
+    width: 100%;
+    //margin-top: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    //margin-bottom: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    top: 72.5%; // これにposition: absolute;を併用することでサイズが変わっても位置がずれないようにするためにtopで微調整する
+    background-color: antiquewhite;
+    //font-size: smaller;
     text-align: center;
-    color: aliceblue;
-    background-color: white;
-    font-size: 95%;
-    z-index: 3;//背景レイヤーの上に表示するためのコード
+    //align-items: flex-end;
+    //text-align: center;
 }
-/* 電子情報工学科の部分 */
-.courcelist .tl{
-    aspect-ratio: 25/10; 
-    left: 76.4%;
-    top: 66.5%;
+
+/* 工学科共通科目の背景画像の部分 */
+.commontech{
+    aspect-ratio: 25/12;
+    background-image: url('courcelist_commontech.png');
+    margin: 6%;
+    position: relative; //クラスcommontechcの位置を調整するための親要素を書くためのコード
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 9%;
+    //font-size: 95%;
+    z-index: 3;
+
+    /* 使わないコード*/
+    /*left: 45.8% */
+    /*top: 66.8%*/
+}
+/* 工学科共通科目の文字の部分 */
+.commontech .commontechc{
+    position: absolute; //クラスtlを親要素とする時、tlのdivの中だけ位置を調整するために子要素として定めるコード
+    //margin-top: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    //margin-bottom: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    top: 72.5%; // これにposition: absolute;を併用することでサイズが変わっても位置がずれないようにするためにtopで微調整する
+    background-color: #aeecec;
+    /* height: 150%; */
+    width: 100%;
     text-align: center;
+
+}
+
+/* 電子情報工学科の背景画像の部分 */
+.tl{
+    aspect-ratio: 25/12; 
+    background-image: url('courcelist_tl.png');
+    position: relative; //クラスtlcの位置を調整するための親要素を書くためのコード
+    margin: 6%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 9%;
+    //font-size: 95%;
+    z-index: 3;
+
+
+    /* 使わないコード */
     /*right: 5.3%;*/ /*これを設定するとbackground-colorのサイズがデカくなる*/
-    color: aliceblue;
-    background-color: white;
-    font-size: 95%;
-    z-index: 3;//背景レイヤーの上に表示するためのコード
+    /*left: 76.4%;*/
+    /*top: 66.5%;*/
+}
+/* 電子情報工学科の文字の部分 */
+.tlc{
+    position: absolute; //クラスtlを親要素とする時、tlのdivの中だけ位置を調整するために子要素として定めるコード
+    //margin-top: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    //margin-bottom: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    top: 72.5%; // これにposition: absolute;を併用することでサイズが変わっても位置がずれないようにするためにtopで微調整する
+    background-color: rgb(177, 172, 172);
+    width: 100%;
+    text-align: center;
+    /* 使わないコード */
+    /*justify-content: center;*/
+    /* height: 150%; */
+}
+
+
+
+
+/* 最背景を明るく薄めるためのレイヤーを追加 */
+.cource::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.562); //背景を明るく薄めるためのコード
+    z-index: 1;//オーバーレイが背景画像の上に表示されるようにするためのコード、画面を一番後ろに表示するためにz-indexの値を1にした。
+    //background-color: rgba(255, 255, 255, 0.562); z-index: 1; この二つで一番後ろの画像を明るく薄めるために使うコード
+}
+/* コンテンツのスタイル */
+.cource.content {
+    position: relative;
+    z-index: 3; //背景の上に表示するために z-index を設定するためのコード
 }
 
 
@@ -134,6 +216,7 @@
 /* 二つ目の背景画像 */
 .universitystyle{
     position: absolute;
+    aspect-ratio: 25/10;
     background-image: url('university_style.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -145,20 +228,35 @@
     height: 60%;
     transform: translate(-50%, -50%);
     z-index: 2; // テキストと同じレベルで表示するためのコード
+    
+    /* Flexbox to center the button inside */
+    /*display: flex;*/
+    /*justify-content: center;*/ /* Center horizontally */
+    /*align-items: center;*/ /* Center vertically */
 }
 /* 大学生活のボタンの部分 */
-.universitystyle p{
-    aspect-ratio: 25/10;
-   //height: auto;
-    left: 36.7%;
-    top: 66.5%;
+/*.universitystyle p*/ //これだと<p>タグ全部に反映されるので個別に細かく調整する場合はこの書き方はオススメしない
+.universitystyle .universitysylec {
+    position: absolute;
+    width: 100%;
+    top: 72.5%; // 
+    //margin-top: 185.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    //margin-bottom: 285.8%; // これだとサイズを変更するごとに位置がズレるので良くない
+    //height: auto;
+    //left: 36.7%;
+    //top: 66.5%;
     //margin: 0;
-    //padding: 10px 20px;
+    //padding: 5px 5px;
+    
+    //justify-content: center;
     text-align: center;
-    color: aliceblue;
-    background-color: white;
-    font-size: 95%;
+    //justify-content: center;
+    //align-items: center;
+    //color: aliceblue;
+    background-color: rgb(232, 152, 180);
+    //font-size: 95%;
     z-index: 3;//背景レイヤーの上に表示するためのコード
+    
 }
 /* 背景を明るく薄めるためのレイヤーを追加 */
 .lifestyle::before {
@@ -246,3 +344,20 @@
 /**/
 
 /**/
+
+
+/* コード性質 */
+/* サイズが変わっても位置がずれない方法 */
+/*
+    <div class="a">
+      <div class="b">よろしく！！</div>
+    </div>
+  
+    .a{
+       position: relative;
+    }
+    .a .b{
+       position: absolute;
+       top: x%;
+    この組み合わせで画面のサイズを変えても位置がクラスbに格納している文字や画像などは変わらない
+*/
