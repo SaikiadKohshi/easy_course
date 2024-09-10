@@ -286,9 +286,13 @@
     justify-content: center; // これは文字を真ん中にするためのコード
     font-size: 32px;
     font-weight: 30; // これは文字の太さを表示するもの
-    
-    background-color: bisque;//テスト用
+    background-image: url("profile_produce.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-color: bisque;*///テスト用
     position: relative;
+    
 }
 
 /* Profileの文字の部分(前背景)*/
@@ -307,7 +311,8 @@
 /* 二つ目の背景画像 */
 .profiledetail{
     position: absolute;
-    /*background-image: url("");*/
+    aspect-ratio: 25/10;
+    background-image: url('profile_display.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -322,19 +327,34 @@
 }
 
 /* 制作者のボタンの部分 */
-.profiledetail p{
-     aspect-ratio: 25/10;
-     left: 36.7%;
-     top: 66.5%;
+.profiledetail .profiledetailc{
+     position: absolute;
+     /*left: 36.7%;*/
+     width: 100%;
+     top: 72.5%;
      text-align: center;
-     color: aliceblue;
-     background-color: wheat;
-     font-size: 95%;
+     /*color: aliceblue;*/
+     background-color: rgb(238, 215, 172);
+     font-size: 55%;
      z-index: 3;
 
 }
 /* 背景を明るく薄めるためのレイヤーを追加 */
-
+.profile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.562); //背景を明るく薄めるためのコード
+    z-index: 1;//オーバーレイが背景画像の上に表示されるようにするためのコード
+}
+/* コンテンツのスタイル */
+.profile .content {
+    position: relative;
+    z-index: 3; //背景の上に表示するために z-index を設定するためのコード
+}
 
 
 /* プロフィールのスタイル */
