@@ -19,3 +19,13 @@
     background-color: blanchedalmond;//テスト用
 
 }
+/* link_toの文字の色を編集するためのコード */
+.linkp{
+    text-decoration: none;/* 下線を削除 */
+    color: rgb(1, 0, 0); /* ホバー時に色を黒に変更 */
+}
+/* linkボタンに触れた時のlinkボタンを編集するためのコード */
+.linkp:hover{
+    color: rgb(231, 81, 81);
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}

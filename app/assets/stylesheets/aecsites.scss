@@ -304,7 +304,7 @@
     top: 4%;
     font-size: 50px;
     font-family: cursive;
-    color: white;
+    color: rgb(11, 10, 10);
     z-index: 2;
 }
 
@@ -381,3 +381,100 @@
        top: x%;
     この組み合わせで画面のサイズを変えても位置がクラスbに格納している文字や画像などは変わらない
 */
+
+/* 以下のコードはそれぞれのファイルのデザインを編集するためのコード */
+
+
+/* 共通教養科目ディレクトリを編集するコード */
+.commonHome{
+    font-size: 90px;
+    text-align: center;
+    background-color: #e55112;
+    color:rgb(248, 250, 114);
+    margin: 0%;
+}
+
+/* 工学科共通科目ディレクトリを編集するコード */
+.tchHome{
+    font-size: 90px;
+    text-align: center;
+    background-color: #5e5959;
+    color:rgb(169, 240, 237);
+    margin: 0%;
+}
+
+/* 電子情報工学科ディレクトリを編集するコード */
+.tlHome{
+    font-size: 90px;
+    text-align: center;
+    background-color: #151414;
+    color:rgb(212, 212, 213);
+    margin: 0%;
+}
+
+/* 大学生活ディレクトリを編集するコード */
+.ulHome{
+    font-size: 90px;
+    text-align: center;
+    background-color: #f9eff8;
+    color:rgb(243, 99, 204);
+    margin: 0%;
+}
+
+/* ホームページに戻るを編集するコード(profileディレクトリ以外) */
+.homep_return{
+    height: 50px;
+    font-size: 22px;
+    font-weight: 30;
+    background-color: rgb(137, 42, 42);//テスト用
+}
+/* link_toの文字の色を編集するためのコード */
+/* それぞれの画面に行くボタン */
+.golink{
+    text-decoration: none!important;/* 下線を削除 */
+    color: rgb(9, 10, 13)!important;
+}
+/* linkボタンに触れた時のlinkボタンを編集するためのコード */
+.golink:hover{
+    color: rgb(119, 172, 221)!important; /* ホバー時に色を黒に変更 */
+    text-decoration: underline !important; /* ホバー時に下線を表示 */
+}
+/* link_toの文字の色を編集するためのコード */
+/* ホーム画面に戻るボタン */
+.link{
+    text-decoration: none;/* 下線を削除 */
+    color: rgb(248, 245, 248);
+}
+/* linkボタンに触れた時のlinkボタンを編集するためのコード */
+.link:hover{
+    color: rgb(1, 0, 0); /* ホバー時に色を黒に変更 */
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* profileディレクトリを編集するコード(仮) */
+/*
+.ulfHome{
+    font-size: 90px;
+    text-align: center;
+    background-color: #f9eff8;
+    color:rgb(238, 216, 164);
+    margin: 0%;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
