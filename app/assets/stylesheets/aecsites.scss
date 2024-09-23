@@ -15,13 +15,41 @@
     
     margin: 0%;
 }
-/* 福岡大學の部分　*/
-.Home_u{
-    text-align: right;
+/* 福岡大學とログイン/ログアウトの部分　*/
+.Home_ul{
+    
+    /*text-align: right;*/
 
     font-size: 22px;
     color: #8B0000;
 }
+/* ログイン/ログアウトの部分 */
+.login{
+    text-align: left;
+    padding: 10px;
+}
+/* ログイン/ログアウトのボタンの部分 */
+.button1{
+    background: linear-gradient(to right, #00bfff 0%, #7fffd4 45%, #fffacd 100%);
+    background-size: 200% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
+.button1:hover{
+    color: #fff;
+    background-position: right center;
+}
+
+/* 福岡大學の部分 */
+.home_u{
+    text-align: right;
+}
+
+
 /* 科目の部分(最背景の部分) */
 .cource{
     height: 600px;

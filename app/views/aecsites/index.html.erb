@@ -1,7 +1,21 @@
 <!-- ホームページを示す画像　-->
 <body>
   <p class="Home_theme"> Easy Cource </p>
-  <p class="Home_u"> in 福岡大學　</p>
+  <div class="Home_ul"> 
+   <div class="login">
+    <% if user_signed_in? %>
+     <p>ようこそ、<%= current_user.email %>さん！</p>
+       
+       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button1' %>
+     <% else %>
+       <%= link_to '新規登録', new_user_registration_path, class: 'button1' %>
+       <%= link_to 'ログイン', new_user_session_path, class: 'button1' %>
+     <% end %>
+   </div>
+   <div class="home_u">
+      in 福岡大學　 
+   </div>
+  </div>
   <!-- class="Target_audience"> 対象者：工学部電子情報工学情報工学科　-->
  <!-- 科目、生活、プロフィールの3つを取り囲む部分　-->
  <div class="cource">
@@ -10,7 +24,7 @@
       <div class="common">
         <!-- 一番左側に置く -->
        <div class="commonc">
-         <%=link_to '共通教養科目', :controller => "aecsites", :action => "commoncource",class: "golink" %>
+         <%=link_to '共通教養科目', :controller => "aecsites", :action => "commoncource" %>
        </div>
       </div>
       <div class="commontech">
