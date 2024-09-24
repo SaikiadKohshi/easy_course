@@ -1,0 +1,78 @@
+ここは予備のコードを格納するディレクトリである
+1.投稿機能
+    def create
+        @commoncource=Commoncource.new(commoncource_params)
+        @tchcourcelist=Tchcourcelist.new(tchcourcelist_params)
+        @tlcource=Tlcource.new(tlcource_params)
+
+        if @commoncource.save
+            redirect_to commoncource_path, notice:'投稿しました'
+        else
+            render :commoncource
+        end
+
+        if @tchcourcelist.save
+            redirect_to tchcourcelist_path, notice:'投稿しました'
+        else
+            render :tchcourcelist
+        end
+
+        if @tlcource.save
+            redirect_to tlcource_path, notice:'投稿しました'
+        else
+            render :tlcource
+        end
+    end
+2.モデルの区別で投稿を分ける方法
+ app/controller/aecsites_controller
+    def create
+        # どのモデルの投稿かを判別するための強化
+        if params[:model] == "tlcource"
+          @tlcource = Aecsite.new(tlcource_params)
+          if @tlcource.save
+            redirect_to tlcource_path(@tlcource), notice: 'Tlcourceを投稿しました'
+          else
+            render :tlcourcenew
+          end
+        elsif params[:model] == "tchcourcelist"
+          @tchcourcelist = Aecsite.new(tchcourcelist_params)
+          if @tchcourcelist.save
+            redirect_to tchcourcelist_path(@tchcourcelist), notice: 'Tchcourcelistを投稿しました'
+          else
+            render :tchcourcelistnew
+          end
+        elsif params[:model] == "commoncource"
+          @commoncource = Aecsite.new(commoncource_params)
+          if @commoncource.save
+            redirect_to commoncource_path(@commoncource), notice: 'Commoncourceを投稿しました'
+          else
+            render :commoncourcenew
+          end
+        else
+          # 不明なモデルの場合の処理
+          redirect_to root_path, alert: '不正なリクエストです'
+        end
+      end
+3.仮のコード(投稿機能、削除機能)
+    def create
+        @aecsite = Aecsite.new(aecsite_params)
+    
+        if @aecsite.save
+          redirect_to appropriate_path(@aecsite), notice: "#{params[:model]}を投稿しました"
+        else
+          render appropriate_new_template(params[:model])
+        end
+      end
+    
+      def destroy_commoncource
+        destroy_aecsite(:commoncource)
+      end
+    
+      def destroy_tchcourcelist
+        destroy_aecsite(:tchcourcelist)
+      end
+    
+      def destroy_tlcource
+        destroy_aecsite(:tlcource)
+      end
+4.

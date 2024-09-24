@@ -5,19 +5,21 @@
     ようこそ！！
     <div>
     <% if user_signed_in? %>
-      <%= link_to "編集する" ,commoncourcenew_aecsite_path %>
+      <%= link_to "投稿する" ,aecsites_commoncourcenew_aecsites_path %>
     <% end %>
     </div>
     <!-- eachと<div>はeachを上に<div>を下に書くまた、</div>とendは</div>を上にendを下に書く -->
-    <% @commoncource.each do |t| %>
-    <div>
-      <p>講義：<%= t.lecture></p>
-      <p>教授：<%= t.professor></p>
-      <p>成績内容：<%= t.grade></p>
-      <p>実録：<%= t.reportage></p>
+    <% @commoncources.each do |t| %>
+     <div>
+      <p>講義：<%= t.lecture %></p>
+      <p>教授：<%= t.professor %></p>
+      <p>成績内容：<%= t.grade %></p>
+      <p>実録：<%= t.reportage %></p>
       
-
-    </div>
+      <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= button_to 'Delete', destroy_aecsite_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+     </div>
     <% end %>
     
     <footer class="homep_return">

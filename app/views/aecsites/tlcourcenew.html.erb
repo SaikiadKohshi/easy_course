@@ -3,22 +3,23 @@
 <html>
  <body>
    <p class="tlHome"> 電子情報工学科 </p>
-   <% form_for @tlcource.each do |p| %>
+   <%= form_with model: @tlcource, url: tlcources_path do |post| %>
+    <%= hidden_field_tag :model, "tlcource" %>
     <div>
       <p>講義</p>
-      <%= p.text_field :lecture, "講義" %>
+      <%= post.text_field :lecture, placeholder:"講義" %>
 
       <p>教授</p>
-      <%= p.text_field :professor, "教授" %>
+      <%= post.text_field :professor, placeholder:"教授" %>
 
       <p>成績内容</p>
-      <%= p.text_field :grade, "成績内容" %>
+      <%= post.text_field :grade, placeholder:"成績内容" %>
 
       <p>テスト評価</p>
-      <%= p.texr_field :reportage, "テスト評価" %>
+      <%= post.text_field :reportage,    placeholder: "テスト評価" %>
 
       <p>post</p>
-      <%= p.submit "投稿する" %>
+      <%= post.submit "投稿する" %>
     </div>
    <% end %>
    <footer class="homep_return">

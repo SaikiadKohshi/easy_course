@@ -8,21 +8,45 @@ Rails.application.routes.draw do
      
      collection do
      
-     get :profile
-     get :universitylife
-     get :tchcourcelist
-     get :commoncource
-     get :tlcource
+       get :profile
+       get :universitylife
+       get :tchcourcelist
+       get :commoncource
+       get :tlcource
 
-     get "aecsites/tchcourcelistnew" => "aecsites#tchcourcelistnew" #aecsites/tchcourcelistnewを受け取ったらaecsitesコントローラーのtchcourcelistnewに遷移するためのコード
-     get "aecsites/commoncourcenew" => "aecsites#commoncourcenew"
-     get "aecsites/tlcourcenew" => "aecsites#tlcourcenew"
+       # 新規投稿画面
+       get "aecsites/tchcourcelistnew" => "aecsites#tchcourcelistnew" #aecsites/tchcourcelistnewを受け取ったらaecsitesコントローラーのtchcourcelistnewに遷移するためのコード
+       get "aecsites/commoncourcenew" => "aecsites#commoncourcenew"
+       get "aecsites/tlcourcenew" => "aecsites#tlcourcenew" 
+       #get :tchcourcelistnew, to: "aecsites#tchcourcelistnew" 簡潔バージョン
+       #get :tchcourcelistnew, to: 'aecsites#tchcourcelistnew'
+       #get :commoncourcenew, to: 'aecsites#commoncourcenew'
+       #get :tlcourcenew, to: 'aecsites#tlcourcenew'
 
-     post "aecsites" => "aecsites#create" 
-      #aecsites：aecsitesというURLに対してPOSTリクエストが発生した時に必要なコード
-      #aecsites#create：aecsitescontorollerの中にあるcreateアクションを呼び出すために使われるコード
+       #post "aecsites" => "aecsites#create" 
+       #aecsites：aecsitesというURLに対してPOSTリクエストが発生した時に必要なコード
+       #aecsites#create：aecsitescontorollerの中にあるcreateアクションを呼び出すために使われるコード
+       post :create, to: 'aecsites#create'
      
+     resources :commoncources do
+      member do
+        delete :destroy_commoncource
+      end
      end
+  
+     resources :tchcourcelists do
+      member do
+        delete :destroy_tchcourcelist
+      end
+     end
+  
+     resources :tlcources do
+      member do
+        delete :destroy_tlcource
+      end
+     end
+
+     end #collect doのend
   end
   
 

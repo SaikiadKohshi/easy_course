@@ -4,9 +4,9 @@
   <div class="Home_ul"> 
    <div class="login">
     <% if user_signed_in? %>
-     <p>ようこそ、<%= current_user.email %>さん！</p>
+     <p>ようこそ、<%= current_user.email %>の<%= current_user.name %>さん！</p>
        
-       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button1' %>
+       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button1' , data: { turbo: false }%> <!-- これをlink_toにするとなぜかNo Routeと出るのでログアウトの時は「link_to」にしない -->
      <% else %>
        <%= link_to '新規登録', new_user_registration_path, class: 'button1' %>
        <%= link_to 'ログイン', new_user_session_path, class: 'button1' %>

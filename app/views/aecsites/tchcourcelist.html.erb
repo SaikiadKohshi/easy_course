@@ -5,17 +5,19 @@
     ようこそ！！
     <div>
     <% if user_signed_in? %>
-      <%= link_to "編集する" ,tchcourcelistnew_aecsite_path %>
+      <%= link_to "投稿する" ,aecsites_tchcourcelistnew_aecsites_path %>
     <% end %>
     </div> 
-    <% @tchcourcelist.each do |t| %>
+    <% @tchcourcelists.each do |t| %>
     <div>
-      <p>講義：<%= t.lecture></p>
-      <p>教授：<%= t.professor></p>
-      <p>成績内容：<%= t.grade></p>
-      <p>実録：<%= t.reportage></p>
-      
+      <p>講義：<%= t.lecture %></p>
+      <p>教授：<%= t.professor %></p>
+      <p>成績内容：<%= t.grade %></p>
+      <p>実録：<%= t.reportage %></p>
 
+      <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= button_to 'Delete', destroy_aecsite_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
     </div>
     <% end %>
     <footer class="homep_return">
