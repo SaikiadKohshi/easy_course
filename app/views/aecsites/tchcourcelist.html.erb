@@ -3,6 +3,21 @@
   <body>
     <p class="tchHome"> 工学科共通科目 </p>
     ようこそ！！
+    <div>
+    <% if user_signed_in? %>
+      <%= link_to "編集する" ,tchcourcelistnew_aecsite_path %>
+    <% end %>
+    </div> 
+    <% @tchcourcelist.each do |t| %>
+    <div>
+      <p>講義：<%= t.lecture></p>
+      <p>教授：<%= t.professor></p>
+      <p>成績内容：<%= t.grade></p>
+      <p>実録：<%= t.reportage></p>
+      
+
+    </div>
+    <% end %>
     <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
     </footer>

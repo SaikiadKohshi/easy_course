@@ -3,6 +3,23 @@
   <body>
     <p class="commonHome"> 共通教養科目 </p>
     ようこそ！！
+    <div>
+    <% if user_signed_in? %>
+      <%= link_to "編集する" ,commoncourcenew_aecsite_path %>
+    <% end %>
+    </div>
+    <!-- eachと<div>はeachを上に<div>を下に書くまた、</div>とendは</div>を上にendを下に書く -->
+    <% @commoncource.each do |t| %>
+    <div>
+      <p>講義：<%= t.lecture></p>
+      <p>教授：<%= t.professor></p>
+      <p>成績内容：<%= t.grade></p>
+      <p>実録：<%= t.reportage></p>
+      
+
+    </div>
+    <% end %>
+    
     <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
     </footer>

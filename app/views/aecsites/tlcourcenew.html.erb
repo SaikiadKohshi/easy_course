@@ -1,0 +1,28 @@
+<!-- ここはログインidを持ってる人のみしか見れない投稿するサイト -->
+<!-- ここでは電子情報工学科である -->
+<html>
+ <body>
+   <p class="tlHome"> 電子情報工学科 </p>
+   <% form_for @tlcource.each do |p| %>
+    <div>
+      <p>講義</p>
+      <%= p.text_field :lecture, "講義" %>
+
+      <p>教授</p>
+      <%= p.text_field :professor, "教授" %>
+
+      <p>成績内容</p>
+      <%= p.text_field :grade, "成績内容" %>
+
+      <p>テスト評価</p>
+      <%= p.texr_field :reportage, "テスト評価" %>
+
+      <p>post</p>
+      <%= p.submit "投稿する" %>
+    </div>
+   <% end %>
+   <footer class="homep_return">
+     <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
+   </footer>
+ </body>
+</html>

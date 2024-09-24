@@ -13,6 +13,14 @@ Rails.application.routes.draw do
      get :tchcourcelist
      get :commoncource
      get :tlcource
+
+     get "aecsites/tchcourcelistnew" => "aecsites#tchcourcelistnew" #aecsites/tchcourcelistnewを受け取ったらaecsitesコントローラーのtchcourcelistnewに遷移するためのコード
+     get "aecsites/commoncourcenew" => "aecsites#commoncourcenew"
+     get "aecsites/tlcourcenew" => "aecsites#tlcourcenew"
+
+     post "aecsites" => "aecsites#create" 
+      #aecsites：aecsitesというURLに対してPOSTリクエストが発生した時に必要なコード
+      #aecsites#create：aecsitescontorollerの中にあるcreateアクションを呼び出すために使われるコード
      
      end
   end
