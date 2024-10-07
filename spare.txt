@@ -53,6 +53,31 @@
           redirect_to root_path, alert: '不正なリクエストです'
         end
       end
+
+      少しコードを簡略化したver
+
+      def create
+        @aecsite = Aecsite.new(aecsite_params)
+    
+        if @aecsite.save
+          case params[:model]
+          when "tlcource"
+            redirect_to tlcource_path(@aecsite), notice: 'Tlcourceを投稿しました'
+          when "tchcourcelist"
+            redirect_to tchcourcelist_path(@aecsite), notice: 'Tchcourcelistを投稿しました'
+          when "commoncource"
+            redirect_to commoncource_path(@aecsite), notice: 'Commoncourceを投稿しました'
+          else
+            redirect_to root_path, alert: '不正なリクエストです'
+          end
+        else
+          render "#{params[:model]}new"
+        end
+    end
+    
+    この時のhtml内のコード
+     <%= form_with model: @tlcource, url: tlcources_path do |post| %>
+
 3.仮のコード(投稿機能、削除機能)
     def create
         @aecsite = Aecsite.new(aecsite_params)

@@ -3,7 +3,7 @@
 <html>
  <body>
    <p class="tlHome"> 電子情報工学科 </p>
-   <%= form_with model: @tlcource, url: tlcources_path do |post| %>
+   <%= form_with url: create_tlcource_aecsites_path, method: :post do |post| %>
     <%= hidden_field_tag :model, "tlcource" %>
     <div>
       <p>講義</p>
@@ -13,10 +13,10 @@
       <%= post.text_field :professor, placeholder:"教授" %>
 
       <p>成績内容</p>
-      <%= post.text_field :grade, placeholder:"成績内容" %>
+      <%= post.text_field :grade, placeholder:"シラバス上にある成績評価を書いてください" %>
 
       <p>テスト評価</p>
-      <%= post.text_field :reportage,    placeholder: "テスト評価" %>
+      <%= post.text_field :reportage,    placeholder: "テストの内容もしくは単位の取得方法を書いてください" %>
 
       <p>post</p>
       <%= post.submit "投稿する" %>

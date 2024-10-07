@@ -26,8 +26,21 @@ Rails.application.routes.draw do
        #post "aecsites" => "aecsites#create" 
        #aecsites：aecsitesというURLに対してPOSTリクエストが発生した時に必要なコード
        #aecsites#create：aecsitescontorollerの中にあるcreateアクションを呼び出すために使われるコード
-       post :create, to: 'aecsites#create'
-     
+       #post :create, to: 'aecsites#create'
+
+       #post 'commoncource', on: :collection
+       #post 'tchcourcelist', on: :collection
+       #post 'tlcources', on: :collection 
+       #post 'create_tlcource', on: :collection #電子情報工学科のサイト投稿する時に使うコード
+       post :create_commoncource
+       post :create_tchcourcelist
+       post :create_tlcource
+
+
+
+
+       #post 'create_tlcource', to: 'aecsites#create' #電子情報工学科のサイト投稿する時に使うコード
+
      resources :commoncources do
       member do
         delete :destroy_commoncource

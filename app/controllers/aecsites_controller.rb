@@ -34,24 +34,36 @@ class AecsitesController < ApplicationController
     
     
     
-    def create
-        @aecsite = Aecsite.new(aecsite_params)
-    
-        if @aecsite.save
-          case params[:model]
-          when "tlcource"
-            redirect_to tlcource_path(@aecsite), notice: 'Tlcourceを投稿しました'
-          when "tchcourcelist"
-            redirect_to tchcourcelist_path(@aecsite), notice: 'Tchcourcelistを投稿しました'
-          when "commoncource"
-            redirect_to commoncource_path(@aecsite), notice: 'Commoncourceを投稿しました'
-          else
-            redirect_to root_path, alert: '不正なリクエストです'
-          end
-        else
-          render "#{params[:model]}new"
-        end
+    #共通教養科目の投稿処理
+  def create_commoncource
+    @commoncource = Aecsite.new(commoncource_params)
+    if @commoncource.save
+      redirect_to commoncource_path, notice: 'Commoncourceを投稿しました'
+    else
+      render :commoncourcenew
     end
+  end
+
+  #工学科共通科目の投稿処理
+  def create_tchcourcelist
+    @tchcourcelist = Aecsite.new(tchcourcelist_params)
+    if @tchcourcelist.save
+      redirect_to tchcourcelist_path, notice: 'Tchcourcelistを投稿しました'
+    else
+      render :tchcourcelistnew
+    end
+  end
+
+  #電子情報工学科の投稿処理
+  def create_tlcource
+    @tlcource = Aecsite.new(tlcource_params)
+    if @tlcource.save
+      redirect_to tlcource_path, notice: 'Tlcourceを投稿しました'
+    else
+      render :tlcourcenew
+    end
+  end
+
 
 
 
@@ -100,9 +112,9 @@ class AecsitesController < ApplicationController
 
     private
 
-    def aecsite_params
-        params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
-    end
+    #def aecsite_params
+     #   params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
+    #end
 
     def commoncource_params
         params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
