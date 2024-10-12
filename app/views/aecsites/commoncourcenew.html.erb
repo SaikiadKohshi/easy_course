@@ -3,7 +3,7 @@
 <html>
   <body>
     <p class="commonHome"> 共通教養科目 </p>
-    <%= form_with model: @commoncource, url: commoncources_path do |post| %>
+    <%= form_with model: @commoncource, url: create_commoncource_aecsites_path do |post| %>
       <%= hidden_field_tag :model, "commoncource" %>
     <div>
       <p>講義</p>

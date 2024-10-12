@@ -3,7 +3,8 @@
 <html>
  <body>
    <p class="tlHome"> 電子情報工学科 </p>
-   <%= form_with url: create_tlcource_aecsites_path, method: :post do |post| %>
+   
+   <%= form_with model: @tlcource,  url: tlcources_path, local: true do |post| %>
     <%= hidden_field_tag :model, "tlcource" %>
     <div>
       <p>講義</p>

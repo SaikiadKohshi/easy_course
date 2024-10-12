@@ -16,8 +16,8 @@
       <p>成績内容：<%= t.grade %></p>
       <p>実録：<%= t.reportage %></p>
       
-      <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= button_to 'Delete', destroy_aecsite_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% if user_signed_in? %>
+        <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
       <% end %>
      </div>
     <% end %>

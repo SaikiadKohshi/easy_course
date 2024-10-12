@@ -3,7 +3,7 @@
 <html>
   <body>
     <p class="tchHome"> 工学科共通科目 </p>
-    <%= form_with model: @tchcourcelist, url: tchcourcelists_path do |post| %>
+    <%= form_with model: @tchcourcelist, url: create_tchcourcelist_aecsites_path do |post| %>
       <%= hidden_field_tag :model, "tchcourcelist" %>
      <div>
        <p>講義</p>

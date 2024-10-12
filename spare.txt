@@ -100,4 +100,175 @@
       def destroy_tlcource
         destroy_aecsite(:tlcource)
       end
-4.
+
+4.TlcourcesController や Tlcource モデルを作らずに削除機能を実装したい場合
+この時、既存のコントローラー (AecsitesController) やモデルを使って処理を行う必要があります。
+ 以下のように、削除機能を AecsitesController に移動して、既存の Aecsite モデルを使って削除機能を実装する方法を説明します。
+ AecsitesController に削除アクションを追加
+AecsitesController に削除アクション (destroy_tlcource) を追加します。これにより、削除機能をこのコントローラーで扱うことができます。
+app/controllers/aecsites_controller.rb
+ class AecsitesController < ApplicationController
+   before_action :set_tlcource, only: [:destroy_tlcource]
+
+   # 既存のアクションに加えて、削除アクションを追加
+   def destroy_tlcource
+     @tlcource.destroy
+     redirect_to tlcource_aecsites_path, notice: '削除しました。'
+   end
+
+   private
+
+   # 削除対象を特定するためのメソッド
+    def set_tlcource
+      @tlcource = Aecsite.find(params[:id]) # Aecsiteモデルを使用して削除対象を取得
+    end
+  end
+   ルーティングを設定
+  config/routes.rb に destroy_tlcource を追加します。これにより、削除リクエストを処理するルートが設定されます。
+
+config/routes.rb
+
+  Rails.application.routes.draw do
+    resources :aecsites do
+      member do
+        delete :destroy_tlcource
+      end
+    end
+  end
+ ビューを修正
+削除ボタンを押すと destroy_tlcource アクションが呼び出されるように、ビューで削除ボタンのリンクを修正します。
+
+app/views/aecsites/tlcource.html.erb
+   <% @tlcources.each do |t| %>
+    <div>
+      <p>コース名：<%= t.name %></p>
+      <p>詳細：<%= t.description %></p>
+      <% if user_signed_in? %>
+         <%= button_to '削除', destroy_tlcource_aecsite_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+    </div>
+  <% end %>
+ このコードでは、destroy_tlcource_aecsite_path を使用して正しいパスに削除リクエストを送信します。
+
+
+
+5.Controllerやmodelを作らずに一つのControllerとmodelで複数のサイトをそれぞれ投稿し、削除するためのコードかつ複数のサイトが独立して投稿や削除ができるようにする場合(完成版)
+  Tlcourceサイトの場合
+   aecsite/controller
+    投稿した内容を表示する
+     def tchcourcelist
+        @tchcourcelists=Aecsite.all #db/migrate/生年月日_~Aecsiteモデル内にあるカラムを@tchcourcelistに代入する時に使うコード
+     end
+    投稿する内容を記述する
+     def tlcourcenew
+        @tlcource=Aecsite.new
+     end
+   #電子情報工学科の投稿処理
+     def create_tlcource
+        @tlcource = Aecsite.new(tlcource_params)
+      if @tlcource.save
+        redirect_to tlcource_aecsites_path, notice: 'Tlcourceを投稿しました'
+      else
+        render :tlcourcenew
+      end
+     end
+     #電子情報工学科の削除機能
+      def destroy_tlcource
+          tlcource = Aecsite.find_by(id: params[:id])
+    
+          if tlcource
+            tlcource&.destroy
+            redirect_to tlcources_aecsites_path, notice: "投稿が削除されました"
+          else
+            redirect_to tlcources_aecsites_path, alert: "投稿が見つかりません"
+          end
+      end
+     #1. 共通の削除メソッドを使用
+     #destroy_aecsite メソッドを再利用して、各削除アクションで使用できるようにします。また、共通のルーティングで扱えるようにします。
+     # 投稿した後、削除ボタンを押して削除できるための共通削除機能を利用する削除アクション
+     def destroy_tlcource
+       destroy_aecsite(params[:id], tlcource_aecsites_path)
+     end
+
+     private
+     # 投稿した後、削除ボタンを押して削除できるための共通削除メソッド
+    def destroy_aecsite(id, redirect_path)
+      aecsite = Aecsite.find_by(id: id)
+    
+      if aecsite
+        aecsite.destroy
+        redirect_to redirect_path, notice: "投稿が削除されました"
+      else
+        redirect_to redirect_path, alert: "投稿が見つかりません"
+      end
+    end
+    
+    def tlcource_params
+        params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
+    end
+
+    def destroy_aecsite(id, redirect_path)
+        aecsite = Aecsite.find_by(id: id)
+    
+        if aecsite
+          aecsite.destroy
+          redirect_to redirect_path, notice: "投稿が削除されました"
+        else
+          redirect_to redirect_path, alert: "投稿が見つかりません"
+        end
+    end
+
+   config/routes
+    resources :aecsites do
+      collection do
+          get :tlcource #表示するメソッド
+          # 新規投稿画面
+          get "aecsites/tlcourcenew" => "aecsites#tlcourcenew" 
+          #下のコードがないと投稿するボタンを押すと「NoMethodError in Aecsites#tlcource」  <%= button_to 'Delete', destroy_tlcource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>というエラーと内容が出る
+          #ただ、投稿内容は残るので正確には投稿した後のシーン遷移ができないだけ
+          delete 'tlcource/:id', to: 'aecsites#destroy_tlcource', as: 'destroy_tlcource' #TlcourceControllerを使わずにAexsitesControllerで削除機能を実装できるために直接消すリンク先をここに書いた
+          #下のpostメソッドがないと例えば電子情報工学科サイト内の投稿するボタンを押す時、「NameError in Aecsites#tlcourcenew」、<%= form_with model: @tlcource, url: create_tlcource_aecsites_path do |post| %>のエラーと内容が出る
+          post :create_tlcource
+      end #collect doのend
+    end
+
+    #投稿内容を表示するファイル
+    <div>
+5の続き   
+    <% if user_signed_in? %>
+          <%= link_to "投稿する" ,aecsites_tlcourcenew_aecsites_path %>
+       <% end %>
+    </div>
+    <% @tlcources.each do |t| %>
+     <div>
+         <p>教授：<%= t.professor %></p>
+         <% if user_signed_in? %>      
+          <%= button_to 'Delete', destroy_tlcource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+         <% end %>
+     </div>
+     <% end %>
+    #投稿内容を書くファイル
+   aecsite/tlcourcenew
+    <%= form_with model: @tlcource, url: create_tlcource_aecsites_path do |post| %>
+      <div>
+        <%= post.text_field :lecture, placeholder:"講義" %>など
+      </div>
+    <% end %>
+   rails routes
+    destroy_tlcource_aecsites DELETE /aecsites/tlcource/:id(.:format)より
+    <%= button_to 'Delete', destroy_tlcource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>routes名をここに書く
+    また、
+    create_tlcource_aecsites POST   /aecsites/create_tlcource(.:format) より、
+    <%= form_with model: @tlcource, url: create_tlcource_aecsites_path do |post| %>routes名をここに書く
+    そして、
+    aecsites_tlcourcenew_aecsites GET    /aecsites/aecsites/tlcourcenew(.:format)より、
+    <% if user_signed_in? %>
+      <%= link_to "投稿する" ,aecsites_tlcourcenew_aecsites_path %>
+    <% end %>
+
+
+6.
+
+
+
+

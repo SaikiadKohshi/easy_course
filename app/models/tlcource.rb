@@ -1,0 +1,2 @@
+class Tlcource < ApplicationRecord
+end
