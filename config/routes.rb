@@ -18,7 +18,7 @@ Rails.application.routes.draw do
        # 新規投稿画面
        get "aecsites/tchcourcelistnew" => "aecsites#tchcourcelistnew" #aecsites/tchcourcelistnewを受け取ったらaecsitesコントローラーのtchcourcelistnewに遷移するためのコード
        get "aecsites/commoncourcenew" => "aecsites#commoncourcenew"
-       get "aecsites/tlcourcenew" => "aecsites#tlcourcenew" 
+       #get "aecsites/tlcourcenew" => "aecsites#tlcourcenew" 
        #下のコードがないと投稿するボタンを押すと「NoMethodError in Aecsites#tlcource」  <%= button_to 'Delete', destroy_tlcource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>というエラーと内容が出る
        #ただ、投稿内容は残るので正確には投稿した後のシーン遷移ができないだけ
        delete 'commoncource/:id', to: 'aecsites#destroy_commoncource', as: 'destroy_commoncource'
@@ -46,13 +46,23 @@ Rails.application.routes.draw do
        post :create_tchcourcelist
        #post :create_tlcource
 
-
-       resources :tlcources, only: [:tlcource, :tlcourcenew, :create, :destroy] do
-        collection do
-          get :tlcourcenew  # 新規作成画面
-          post :create_tlcource  # 新規作成
-        end
-       end
+    end #collect doのend
+  end
+  
+  #電子情報工学科のリンク先を示す全体のコード
+  resources :tlcources do
+    member do
+      delete :destroy #電子情報工学科の投稿削除機能追加
+    end
+  end
+  
+        #collection do
+          
+          #get :tlcource
+          #get :tlcourcenew  # 新規作成画面
+          #post :create_tlcource  # 新規作成
+        #end #collect doのend
+end
 
        #post 'create_tlcource', to: 'aecsites#create' #電子情報工学科のサイト投稿する時に使うコード
 
@@ -75,13 +85,3 @@ Rails.application.routes.draw do
      #end
 
 
-
-
-       
-       
-
-     end #collect doのend
-  end
-  
-
-end

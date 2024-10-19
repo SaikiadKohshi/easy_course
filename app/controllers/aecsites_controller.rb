@@ -16,13 +16,15 @@ class AecsitesController < ApplicationController
     def commoncource
         @commoncources=Aecsite.all
     end
-    def tlcource
-        @tlcources=Aecsite.all
-    end
+    #def tlcource
+     #   @tlcources=Aecsite.all
+    #end
+    
     
     def commoncourcenew
         @commoncource=Aecsite.new
     end
+    
 
     #def tchcourcelistnew
      #   @tchcourcelist=Aecsite.new

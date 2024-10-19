@@ -152,7 +152,7 @@ app/views/aecsites/tlcource.html.erb
 
 
 
-5.Controllerやmodelを作らずに一つのControllerとmodelで複数のサイトをそれぞれ投稿し、削除するためのコードかつ複数のサイトが独立して投稿や削除ができるようにする場合(完成版)
+5.Controllerやmodelを作らずに一つのControllerとmodelで複数のサイトをそれぞれ投稿し、削除するためのコードかつ複数のサイトが独立して投稿や削除ができるようにする場合(1つの投稿サイトで削除や投稿をすると残りの2つの投稿サイトにも連動され、同じ内容が3つのサイトに掲示されたり削除すると同様に別の投稿サイトからも削除されるのでこれは連動用で実装するためのコード)
   Tlcourceサイトの場合
    aecsite/controller
     投稿した内容を表示する
@@ -267,7 +267,201 @@ app/views/aecsites/tlcource.html.erb
     <% end %>
 
 
-6.
+6.ホームページから複数の投稿サイトに遷移し、それぞれの投稿サイトが連動せずに独立して投稿機能や削除機能されるコード
+   例、ホームページ：views/aecsites/index　投稿サイト：views/tlcources/index　投稿内容を各サイト：app/tlcources/new　
+6のコード
+　 app/aecsites/index
+   
+      <div class="Home_ul"> 
+       <div class="login">
+        <% if user_signed_in? %>
+          <p>ようこそ、<%= current_user.email %>の<%= current_user.name %>さん！</p>
+       
+          <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'button1' , data: { turbo: false }%> <!-- これをlink_toにするとなぜかNo Routeと出るのでログアウトの時は「link_to」にしない -->
+        <% else %>
+          <%= link_to '新規登録', new_user_registration_path, class: 'button1' %>
+          <%= link_to 'ログイン', new_user_session_path, class: 'button1' %>
+       <% end %>
+      </div>
+    #電子情報工学科へのリンク先
+      <div class="tl">
+       <div class="tlc">
+        <!-- 一番右側に置く -->
+        <%=link_to '電子情報工学科', tlcources_path %>
+       </div>
+      </div>
+
+
+  app/controllers/aecsites_controller
+  　　class AecsitesController < ApplicationController
+    　　#app/aecsites/indexを表示するためのコード
+    　　def index
+  　  　end
+  　　end
+
+  app/views/tlcources/index
+    <!-- ここは電子情報工学科の科目を紹介するファイル -->
+    <html>
+      <body>
+        <p class="tlHome"> 電子情報工学科 </p>
+          ようこそ！
+        <div>
+          <% if user_signed_in? %>
+              <%= link_to "投稿する" ,new_tlcource_path %>　→　app/tlcources/newに遷移するためのコード
+          <% end %>
+        </div>
+       <% @tlcources.each do |t| %>
+        <div>
+          <p>講義：<%= t.lecture %></p>
+          <p>教授：<%= t.professor %></p>
+          <p>成績内容：<%= t.grade %></p>
+          <p>実録：<%= t.reportage %></p>
+          <% if user_signed_in? %>      
+                <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <% end %>
+        </div>
+       <% end %>
+        <footer class="homep_return">
+          <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
+        </footer>
+      </body>
+    <html>
+
+  app/tlcources/new
+    <!-- ここはログインidを持ってる人のみしか見れない投稿するサイト -->
+    <!-- ここでは電子情報工学科である -->
+    <html>
+      <body>
+         <p class="tlHome"> 電子情報工学科 </p>
+   
+       <%= form_with model: @tlcource,  url: tlcources_path, local: true do |post| %>
+         <%= hidden_field_tag :model, "tlcource" %>
+        <div>
+          <p>講義</p>
+            <%= post.text_field :lecture, placeholder:"講義" %>
+
+          <p>教授</p>
+            <%= post.text_field :professor, placeholder:"教授" %>
+
+          <p>成績内容</p>
+            <%= post.text_field :grade, placeholder:"シラバス上にある成績評価を書いてください" %>
+
+          <p>テスト評価</p>
+            <%= post.text_field :reportage,    placeholder: "テストの内容もしくは単位の取得方法を書いてください" %>
+
+          <p>post</p>
+             <%= post.submit "投稿する" %>
+         </div>
+       <% end %>
+           <footer class="homep_return">
+              <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
+           </footer>
+      </body>
+    </html>
+
+  app/controllers/tlcources_controller
+     class TlcourcesController < ApplicationController
+
+        #画面表示機能
+        def index
+           #@tlcource = Tlcource.find(params[:id]) #ログインした人にしか「app/views/tlcources/index」を表示しないようにするためのコードなのでここではコメントアウトしている
+           @tlcources = Tlcource.all
+           #render :tlcource
+        end
+      
+      　 #新規投稿機能
+         def new
+           @tlcource = Tlcource.new
+         end
+      
+         #新規投稿機能の中身
+         def create
+              @tlcource = Tlcource.new(tlcource_params)
+              if @tlcource.save
+               redirect_to tlcources_path, notice: 'Tlcourceを投稿しました'
+              else
+               render :new
+              end
+         end
+    
+      
+
+          #削除機能
+          def destroy
+              @tlcource = Tlcource.find(params[:id])
+              @tlcource.destroy
+                redirect_to tlcources_path, notice: '削除しました。'
+          end
+    
+          private
+    
+          def tlcource_params
+             params.require(:tlcource).permit(:lecture, :professor, :grade, :reportage)
+          end
+    
+     end
+
+  config/routes
+    Rails.application.routes.draw do
+     devise_for :users
+     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+        get 'aecsites/index' => 'aecsites#index'
+        root 'aecsites#index' #ログイン機能でdeviseを使う時にこのコードは必須、なぜならログインした後のシーン遷移を決めないとroot_pathに移動してしまうから
+     resources :aecsites do
+       
+       collection do
+
+        get :tlcource #aecsites/indexからtlcources/index内の情報をゲットするために必要なコード
+       
+       end 
+     end
+     #電子情報工学科のリンク先を示す全体のコード
+     resources :tlcources do
+        member do
+          delete :destroy #電子情報工学科の投稿削除機能追加
+        end
+     end
+
+    end
+    
+    db/migrate/TlcourceModel
+     class CreateTlcources < ActiveRecord::Migration[6.1]
+       def change
+        create_table :tlcources do |t|
+          t.string :lecture
+          t.string :professor
+          t.float :reputation
+          t.text :grade
+          t.text :reportage
+
+          t.timestamps
+        end
+       end
+     end
+
+    db/migrate/AecsiteModel
+     class CreateAecsites < ActiveRecord::Migration[6.1]
+       def change
+         create_table :aecsites do |t|
+          t.string :lecture
+          t.string :professor
+          t.float :reputation
+          t.text :grade
+          t.text :reportage
+
+          t.timestamps
+         end
+       end
+     end
+
+     これで完了！
+     point
+      複数のサイトを独立させて機能させるにはそれぞれ投稿サイトのコントローラーとモデルを作る必要がある。
+      　例、9個の独立した投稿サイトを作るには必ず9個のコントローラーと9個のモデルが必要である。
+
+7.
+
+
 
 
 
