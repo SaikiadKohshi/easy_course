@@ -10,9 +10,9 @@ class AecsitesController < ApplicationController
     end
     def universitylife
     end
-    def tchcourcelist
-        @tchcourcelists=Aecsite.all #db/migrate/生年月日_~Aecsiteモデル内にあるカラムを@tchcourcelistに代入する時に使うコード
-    end
+    #def tchcourcelist
+     #   @tchcourcelists=Aecsite.all #db/migrate/生年月日_~Aecsiteモデル内にあるカラムを@tchcourcelistに代入する時に使うコード
+    #end
     def commoncource
         @commoncources=Aecsite.all
     end
@@ -59,14 +59,14 @@ class AecsitesController < ApplicationController
   end
 
   #工学科共通科目の投稿処理
-  def create_tchcourcelist
-    @tchcourcelist = Aecsite.new(tchcourcelist_params)
-    if @tchcourcelist.save
-      redirect_to tchcourcelist_aecsites_path, notice: 'Tchcourcelistを投稿しました'
-    else
-      render :tchcourcelistnew
-    end
-  end
+  #def create_tchcourcelist
+   # @tchcourcelist = Aecsite.new(tchcourcelist_params)
+    #if @tchcourcelist.save
+     # redirect_to tchcourcelist_aecsites_path, notice: 'Tchcourcelistを投稿しました'
+    #else
+     # render :tchcourcelistnew
+    #end
+  #end
 
   #電子情報工学科の投稿処理
   #def create_tlcource
@@ -100,16 +100,16 @@ class AecsitesController < ApplicationController
       end
 
     #工学科共通科目の削除機能
-    def destroy_tchcourcelist
-        tchcourcelist = Aecsite.find_by(id: params[:id])
+    #def destroy_tchcourcelist
+     #   tchcourcelist = Aecsite.find_by(id: params[:id])
     
-        if tchcourcelist
-          tchcourcelist&.destroy
-          redirect_to tchcourcelists_aecsites_path, notice: "投稿が削除されました"
-        else
-          redirect_to tchcourcelists_aecsites_path, alert: "投稿が見つかりません"
-        end
-    end
+      #  if tchcourcelist
+       #   tchcourcelist&.destroy
+        #  redirect_to tchcourcelists_aecsites_path, notice: "投稿が削除されました"
+      #  else
+        #  redirect_to tchcourcelists_aecsites_path, alert: "投稿が見つかりません"
+     #   end
+    #end
 
     #電子情報工学科の削除機能
     #def destroy_tlcource
@@ -129,9 +129,9 @@ class AecsitesController < ApplicationController
        destroy_aecsite(params[:id], commoncource_aecsites_path)
     end
 
-    def destroy_tchcourcelist
-       destroy_aecsite(params[:id], tchcourcelist_aecsites_path)
-    end
+    #def destroy_tchcourcelist
+     #  destroy_aecsite(params[:id], tchcourcelist_aecsites_path)
+    #end
 
     #def destroy_tlcource
      #  destroy_aecsite(params[:id], tlcource_aecsites_path)
@@ -160,9 +160,9 @@ class AecsitesController < ApplicationController
         params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
     end
 
-    def tchcourcelist_params
-        params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
-    end
+    #def tchcourcelist_params
+     #   params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
+    #end
 
     #def tlcource_params
      #   params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)

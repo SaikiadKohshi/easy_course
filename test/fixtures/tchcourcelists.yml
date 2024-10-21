@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lecture: MyString
+  professor: MyString
+  reputation: 1.5
+  grade: MyText
+  reportage: MyText
+
+two:
+  lecture: MyString
+  professor: MyString
+  reputation: 1.5
+  grade: MyText
+  reportage: MyText

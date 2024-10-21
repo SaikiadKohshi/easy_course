@@ -1,0 +1,2 @@
+class Tchcourcelist < ApplicationRecord
+end
