@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  selsect: MyText
+  study: MyText
+  parttimejob: MyText
+  circle: MyText
+  daily: MyText
+  intern: MyText
+
+two:
+  selsect: MyText
+  study: MyText
+  parttimejob: MyText
+  circle: MyText
+  daily: MyText
+  intern: MyText

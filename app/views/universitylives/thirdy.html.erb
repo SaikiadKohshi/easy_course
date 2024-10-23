@@ -1,0 +1,23 @@
+<!-- ここは大学3年生を紹介するためのサイト -->
+<!-- third year university student:(イギリス英語)   junior:(アメリカ英語) -->
+<html>
+  <body>
+    <p class="ulHome"> Third Year University Student </p>
+    ようこそ！！
+    <% @thirdy.each do |t| %>
+        <div>
+           <p>学業：<%= t.study %></p>
+           <p>バイト：<%= t.parttimejob %></p>
+           <p>サークル：<%= t.circle %></p>
+           <p>日常生活：<%= t.daily %></p>
+           <p>インターン：<%= t.intern %></p>
+           <% if user_signed_in? %>
+                <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
+           <% end %>
+        </div>
+    <% end %>
+   <footer class="homep_return">
+    <%= link_to '前のページに戻る',intrograde_universitylives_path, class: 'link' %>
+   </footer>
+  </body>
+</html>

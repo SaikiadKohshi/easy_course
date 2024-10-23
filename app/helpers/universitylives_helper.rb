@@ -1,0 +1,2 @@
+module UniversitylivesHelper
+end

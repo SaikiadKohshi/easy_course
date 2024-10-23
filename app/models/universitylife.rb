@@ -1,0 +1,2 @@
+class Universitylife < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_21_053003) do
+ActiveRecord::Schema.define(version: 2024_10_23_072835) do
 
   create_table "aecsites", force: :cascade do |t|
     t.string "lecture"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2024_10_21_053003) do
     t.float "reputation"
     t.text "grade"
     t.text "reportage"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "universitylives", force: :cascade do |t|
+    t.text "selsect"
+    t.text "study"
+    t.text "parttimejob"
+    t.text "circle"
+    t.text "daily"
+    t.text "intern"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

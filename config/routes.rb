@@ -70,6 +70,34 @@ Rails.application.routes.draw do
     end
    end
 
+
+   #大学生活のリンク先を示す全体のコード
+   resources :universitylives do
+     collection do
+      get :intrograde
+      get :firsty
+      get :secondy
+      get :thirdy
+      get :fourthy
+     
+     end
+     
+     
+   end
+
+    #大学1年生の機能を実装する全体のコード
+
+
+    #大学2年生の機能を実装する全体のコード
+
+
+    #大学3年生の機能を実装する全体のコード
+
+
+    #大学4年生の機能を実装する全体のコード
+    
+
+
         #collection do
           
           #get :tlcource
