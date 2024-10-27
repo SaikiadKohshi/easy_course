@@ -1,0 +1,67 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Profile画面をデザインするためのファイル　*/
+/* Profile全体の部分 */
+.profile_exlsv{
+    font-size: 500px;
+    
+}
+/* Profileの文字の部分 */
+.myname{
+    font-size: 35px;
+    text-align: center;
+    margin: 0%;
+    background-color: burlywood;//テスト用
+}
+/* ホームページに戻る部分 */
+.profile_return{
+    height: 50px;
+    font-size: 22px;
+    font-weight: 30;
+    background-color: blanchedalmond;//テスト用
+
+}
+/* link_toの文字の色を編集するためのコード */
+.linkp{
+    text-decoration: none;/* 下線を削除 */
+    color: rgb(1, 0, 0); /* ホバー時に色を黒に変更 */
+}
+/* linkボタンに触れた時のlinkボタンを編集するためのコード */
+.linkp:hover{
+    color: rgb(231, 81, 81);
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+/* <p class="profile_sign">管理者情報</p> */
+/* 「管理者情報」の部分 */
+.profile_sign{
+    margin: 0%;
+    padding: 0%;
+    color: bisque;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    background-image: url('profilesign.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 管理者(俺)の紹介部分 */
+.profile_detail{
+    height: 772px;
+    /*margin-left: 431px;*/
+    /*margin-right: 431px;*/
+    background-image: url('profile_wide.png');
+    background-size: 90%;
+    object-fit: contain;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-size: cover;*/
+    background-color: aquamarine;
+    
+}
+
+

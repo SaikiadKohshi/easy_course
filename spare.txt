@@ -459,9 +459,79 @@ app/views/aecsites/tlcource.html.erb
       複数のサイトを独立させて機能させるにはそれぞれ投稿サイトのコントローラーとモデルを作る必要がある。
       　例、9個の独立した投稿サイトを作るには必ず9個のコントローラーと9個のモデルが必要である。
 
-7.
+7.検索機能(複数検索と単体検索両方実装する)かつ検索内容が一致しなかったら「該当する投稿は見つかりませんでした」と表示する方法
+   
+   app/universitylives/firsty
 
+   <%= form_tag({controller:"universitylives",action:"firsty"},method: :get) do %>
+    
+    <%= check_box_tag 'filters[]', 'study', params[:filters]&.include?('study') %>
+    <%= label_tag :filter_study, '学業' %>
 
+    <%= check_box_tag 'filters[]', 'parttimejob', params[:filters]&.include?('parttimejob') %>
+    <%= label_tag :filter_parttimejob, 'バイト' %>
+
+    <%= check_box_tag 'filters[]', 'circle', params[:filters]&.include?('circle') %>
+    <%= label_tag :filter_circle, 'サークル' %>
+
+    <%= check_box_tag 'filters[]', 'daily', params[:filters]&.include?('daily') %>
+    <%= label_tag :filter_daily, '日常生活' %>
+
+    <%= check_box_tag 'filters[]', 'intern', params[:filters]&.include?('intern') %>
+    <%= label_tag :filter_intern, 'インターン' %>
+
+    <%= text_field_tag :search %>
+    <%= submit_tag "検索する" %>
+   <% end %>
+   <% if @no_results %>
+      <p> 該当する投稿は見つかりませんでした。 </p>
+   <% else %>
+    <% @firsty.each do |t| %>
+     <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
+      <div>
+        <p>学業：<%= t.study %></p>
+        <p>バイト：<%= t.parttimejob %></p>
+        <p>サークル：<%= t.circle %></p>
+        <p>日常生活：<%= t.daily %></p>
+        <p>インターン：<%= t.intern %></p>
+        <% if user_signed_in? %>
+          <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
+        <% end %>
+      </div>
+     <% end %>
+  
+    <% end %>
+   <% end %>
+
+   app/controllers/universitylives_controller.rb
+   #大学1年生を紹介するサイト
+     def firsty
+
+        #投稿するサイトを選択し、投稿内容を示すためのコード
+         @firsty=Universitylife.where(selsect:"firsty")
+          
+
+        #検索機能
+        #複数検索はチェックボックスを使い、単体のみで検索するのはラジオボタンを使う
+        @search_executed = params[:filters].present? || params[:search].present? # 検索が実行されたか判定
+        if @search_executed
+         conditions = []
+         conditions << "(study IS NOT NULL AND study != '' )" if params[:filters].include?('study')
+         conditions << "(parttimejob IS NOT NULL AND parttimejob != '' )" if params[:filters].include?('parttimejob')
+         conditions << "(circle IS NOT NULL AND circle != '' )" if params[:filters].include?('circle')
+         conditions << "(daily IS NOT NULL AND daily != '' )" if params[:filters].include?('daily')
+         conditions << "(intern IS NOT NULL AND intern != '' )" if params[:filters].include?('intern')
+         
+         #複数の検索をORで結合して検索して表示するかつ何もhitしなかったら表示しないようにするためのコード
+         @firsty=@firsty.where(conditions.join(" OR ")) if conditions.any?
+         #ORの部分はスペースを開けること、開けないと複数の検索が実装できないため 
+        end
+
+         #検索結果が存在しない場合のフラグを設定
+         @no_results = @search_executed && @firsty.empty?
+     end
+
+8.
 
 
 

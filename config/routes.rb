@@ -96,7 +96,10 @@ Rails.application.routes.draw do
 
     #大学4年生の機能を実装する全体のコード
     
+    #制作者のリンク先を示す全体のコード
+    resources :profiles do
 
+    end
 
         #collection do
           

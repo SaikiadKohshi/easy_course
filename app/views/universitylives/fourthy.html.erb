@@ -4,7 +4,31 @@
   <body>
     <p class="ulHome"> Fourth Year University Student </p>
     ようこそ！！
-    <% @fourthy.each do |t| %>
+    <%= form_tag({controller:"universitylives",action:"firsty"},method: :get) do %>
+    
+      <%= check_box_tag 'filters[]', 'study', params[:filters]&.include?('study') %>
+      <%= label_tag :filter_study, '学業' %>
+  
+      <%= check_box_tag 'filters[]', 'parttimejob', params[:filters]&.include?('parttimejob') %>
+      <%= label_tag :filter_parttimejob, 'バイト' %>
+  
+      <%= check_box_tag 'filters[]', 'circle', params[:filters]&.include?('circle') %>
+      <%= label_tag :filter_circle, 'サークル' %>
+  
+      <%= check_box_tag 'filters[]', 'daily', params[:filters]&.include?('daily') %>
+      <%= label_tag :filter_daily, '日常生活' %>
+  
+      <%= check_box_tag 'filters[]', 'intern', params[:filters]&.include?('intern') %>
+      <%= label_tag :filter_intern, 'インターン' %>
+  
+      
+      <%= submit_tag "検索する" %>
+    <% end %>
+    <% if @no_result_4 %>
+      <p> 該当する投稿は見つかりませんでした。 </p>
+    <% else %>
+     <% @fourthy.each do |t| %>
+       <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
         <div>
            <p>学業：<%= t.study %></p>
            <p>バイト：<%= t.parttimejob %></p>
@@ -15,6 +39,8 @@
                 <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
            <% end %>
         </div>
+       <% end %>
+     <% end %>
     <% end %>
    <footer class="homep_return">
     <%= link_to '前のページに戻る',intrograde_universitylives_path, class: 'link' %>
