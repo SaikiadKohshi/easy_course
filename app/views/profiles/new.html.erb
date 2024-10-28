@@ -1,0 +1,19 @@
+<!-- ここは管理者のプロフィールを新規投稿するファイル -->
+<html>
+ <body>
+   <div>
+    <%= form_with model: @profile, url: profiles_path, local: true do |post| %>
+       <%= post.text_field :nickname, placeholder:"名前" %>
+       <%= post.text_field :age, placeholder:"年齢" %>
+       <%= post.text_field :birthday, placeholder:"誕生日" %>
+       <%= post.text_field :hometown, placeholder:"出身" %>
+       <%= post.text_field :college, placeholder:"大学" %>
+       <%= post.text_field :character, :size=>231 ,placeholder:"紹介文" %>
+       <%= post.submit "新規登録する" %>
+    <% end %>
+   </div>
+   <footer class="homep_return">
+      <%= link_to 'プロフィール画面に戻る',profiles_path, class: 'link' %>
+   </footer>
+ </body>
+</html>

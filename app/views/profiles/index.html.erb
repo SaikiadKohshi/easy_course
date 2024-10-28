@@ -3,7 +3,34 @@
  <p class="myname">制作者　-Profile-</p>
  <div class="profile_exlsv">
    
-    <div class="profile_detail"></div>
+    <div class="profile_detail">
+     <% @profiles.each do |t| %>
+       <div class="mycharacter">
+        <br>
+        <b><%= t.nickname %></b>    
+          <p>
+            <%= t.age %>
+            <%= t.birthday %>
+          </p>
+          <p>      
+            <%= t.hometown %>
+            <%= t.college %>
+          </p>
+                
+          <p><%= t.character %></p>
+      
+       </div>
+
+       <tabel class="profile_link">
+        <tr>
+         <% if user_signed_in? %>
+           <th><%= link_to "登録する" ,new_profile_path %></th>
+           <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
+         <% end %>
+        </tr>
+       </table>
+     <% end %>
+   </div>
  </div>
  <footer class="profile_return">
    <%= link_to 'ホームページに戻る',aecsites_path, class: 'linkp' %>

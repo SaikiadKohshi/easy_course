@@ -98,7 +98,7 @@ Rails.application.routes.draw do
     
     #制作者のリンク先を示す全体のコード
     resources :profiles do
-
+      
     end
 
         #collection do
