@@ -6,10 +6,10 @@ class AecsitesController < ApplicationController
     #水色：変数。この変数はviewで反映したい時に共通言語として使う。例、@aaとつけたらhtmlでも@aaと定めてそこから投稿や編集機能に反映させる
     def index
     end
-    def profile
-    end
-    def universitylife
-    end
+    #def profile
+    #end
+    #def universitylife
+    #end
     #def tchcourcelist
      #   @tchcourcelists=Aecsite.all #db/migrate/生年月日_~Aecsiteモデル内にあるカラムを@tchcourcelistに代入する時に使うコード
     #end

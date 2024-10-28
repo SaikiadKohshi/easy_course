@@ -19,20 +19,21 @@
                 
           <p><%= t.character %></p>
       
+       
+       
+         <table class="profile_link">
+          <tr>
+             <% if user_signed_in? %>
+                <th><%= link_to "登録する" ,new_profile_path %></th>
+                <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
+             <% end %>
+          </tr>
+         </table>
        </div>
-
-       <tabel class="profile_link">
-        <tr>
-         <% if user_signed_in? %>
-           <th><%= link_to "登録する" ,new_profile_path %></th>
-           <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
-         <% end %>
-        </tr>
-       </table>
      <% end %>
    </div>
  </div>
  <footer class="profile_return">
-   <%= link_to 'ホームページに戻る',aecsites_path, class: 'linkp' %>
+     <%= link_to 'ホームページに戻る', aecsites_index_path, class: 'linkp' %>
  </footer>
 </body>

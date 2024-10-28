@@ -5,8 +5,18 @@
 /* Profile画面をデザインするためのファイル　*/
 /* Profile全体の部分 */
 .profile_exlsv{
+    position: relative;
     font-size: 500px;
-    
+    background-image: url('profile_wide.png');
+    background-size: 90%;
+    object-fit: contain;
+    text-align: center; /* 文字を真ん中にする */
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 25/10;
+    /*top: 40%;
+    left: 73.5%;
+    transform: translate(-50%, -50%);*/
 }
 /* Profileの文字の部分 */
 .myname{
@@ -46,38 +56,54 @@
     background-image: url('profilesign.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 /* 管理者(俺)の紹介部分 */
 .profile_detail{
+    position: absolute;
     height: 772px;
-    font-size: 90.4px;
+    padding: 10px;
     /*margin-left: 431px;*/
     /*margin-right: 431px;*/
+    /*
     background-image: url('profile_wide.png');
     background-size: 90%;
     object-fit: contain;
     text-align: center;
     background-repeat: no-repeat;
     background-position: center;
+    */
     /*background-size: cover;*/
-    background-color: aquamarine;
-    z-index: 1;
+    /*background-color: aquamarine;*/
+    /*z-index: 1;*/
+    
+    top: 19%;
+    left: 24.1%;
+    /*right: 10%;*/
+    /*bottom: 20%;*/
+    font-size: 157.4px;
+    overflow: auto;
+    /*font-size: 16px;*/ /* 読みやすいように調整 */
+    color: #333; /* 枠に合わせた色を設定 */
 }
 
 /* 投稿内容部分 */
 
-.mycharacter{
+.mycharacter {
     aspect-ratio: 25/10;
     font-size: 10%;
-    left: 73.5%;
+    /*left: 73.5%;
     padding-top: 29.1%;
     padding-left: 22.1%;
+    */
+    
 }
 
 /* 新規登録、更新部分*/
 .profile_link{
-    font-size: 10%;
-    left: 84.4%
+    font-size: 16px;
+    margin-top: 20px;
+    margin-inline: auto; /* これを設定することで要素の左右の余白が自動的に均等され、要素が親要素内で水平中央に配置される */
 }
 

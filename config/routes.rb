@@ -8,8 +8,8 @@ Rails.application.routes.draw do
      
      collection do
      
-       get :profile
-       get :universitylife
+       #get :profile
+       #get :universitylife
        #get :tchcourcelist
        get :commoncource
        #get :tlcource
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
        #下のコードがないと投稿するボタンを押すと「NoMethodError in Aecsites#tlcource」  <%= button_to 'Delete', destroy_tlcource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>というエラーと内容が出る
        #ただ、投稿内容は残るので正確には投稿した後のシーン遷移ができないだけ
        #delete 'commoncource/:id', to: 'aecsites#destroy_commoncource', as: 'destroy_commoncource'
-       delete 'tchcourcelist/id', to: 'aecsites#destroy_tchcourcelist', as: 'destroy_tchcourcelist'
+       #delete 'tchcourcelist/id', to: 'aecsites#destroy_tchcourcelist', as: 'destroy_tchcourcelist'
        #delete 'tlcource/:id', to: 'aecsites#destroy_tlcource', as: 'destroy_tlcource' #TlcourceControllerを使わずにAexsitesControllerで削除機能を実装できるために直接消すリンク先をここに書いた
 
 
