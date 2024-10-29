@@ -17,6 +17,7 @@
     /*top: 40%;
     left: 73.5%;
     transform: translate(-50%, -50%);*/
+    padding-top: 22%;
 }
 /* Profileの文字の部分 */
 .myname{
@@ -46,6 +47,7 @@
 
 /* <p class="profile_sign">管理者情報</p> */
 /* 「管理者情報」の部分 */
+/*
 .profile_sign{
     margin: 0%;
     padding: 0%;
@@ -58,12 +60,13 @@
     background-size: cover;
     
 }
+*/
 
 /* 管理者(俺)の紹介部分 */
 .profile_detail{
     position: absolute;
-    height: 772px;
-    padding: 10px;
+    /*height: 772px;*/
+    /*padding: 10px;*/
     /*margin-left: 431px;*/
     /*margin-right: 431px;*/
     /*
@@ -78,8 +81,8 @@
     /*background-color: aquamarine;*/
     /*z-index: 1;*/
     
-    top: 19%;
-    left: 24.1%;
+    top: 31%;
+    left: 23.1%;
     /*right: 10%;*/
     /*bottom: 20%;*/
     font-size: 157.4px;
