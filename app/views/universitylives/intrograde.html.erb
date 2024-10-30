@@ -2,11 +2,13 @@
 <html>
   <body>
     <p class="ulHome"> University Life </p>
+   <div class="gradeall">
        <%= link_to 'First', url_for(controller: "universitylives", action: "firsty"), class: 'grade1' %>
        <%= link_to 'Second', url_for(controller: "universitylives", action: "secondy"), class: 'grade2' %>
        <%= link_to 'Third', {controller: "universitylives", action: "thirdy"}, class: 'grade3' %>
        <%= link_to 'Fourth', {controller: "universitylives", action: "fourthy"}, class: 'grade4' %>
-   <div>
+   </div>
+   <div class="postunilf">
        <% if user_signed_in? %>
          <%= link_to "投稿する" ,new_universitylife_path %>
        <% end %>

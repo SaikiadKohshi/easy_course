@@ -4,7 +4,7 @@
   <body>
     <p class="ulHome"> Second Year University Student </p>
     ようこそ！！
-    <%= form_tag({controller:"universitylives",action:"firsty"},method: :get) do %>
+    <%= form_tag({controller:"universitylives",action:"secondy"},method: :get) do %>
     
       <%= check_box_tag 'filters[]', 'study', params[:filters]&.include?('study') %>
       <%= label_tag :filter_study, '学業' %>
