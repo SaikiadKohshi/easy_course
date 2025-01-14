@@ -449,6 +449,66 @@
     margin: 0%;
 }
 
+
+
+/* 投稿サイトのフロントデザインを編集するコード */
+
+/* Welcomeの部分を編集するコード */
+.headstyle{
+    text-align: center;
+    object-fit: contain;
+    margin: 7.529%;
+}
+/* Welcomeの文字を編集するコード */
+.headchar{
+    font-size: 100px;
+    //(没)box-sizing: 999px;
+    font-weight: 900;
+    //width: 100%;
+}
+
+/* 投稿の枠組み */
+.informationlist{
+     margin: 138px;
+     color: #5d627b;
+     background: white;
+     border-top: solid 6px #5d627d;
+     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
+     border-radius: 11.5px;
+}
+
+/* 投稿するボタンデザイン */
+.postb{
+    margin: 11%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: solid 5px rgb(235, 66, 151);
+}
+
+/* 講義・教授 */
+.shorttext{
+    color:rgb(6, 1, 1);
+    font-weight: lighter;
+      
+}
+
+/* 成績内容・実録 */
+.longtext{
+    font-weight: bold;
+    color:rgb(6, 1, 1);
+    border-bottom: solid 4px rgb(12, 11, 13); /* 枠組みに影をつけるためのコード */
+
+}
+
+
+/* 投稿サイトの削除ボタンデザイン */
+.deleteb{
+    text-align: center;
+    border-bottom: solid 5px rgb(32, 158, 183);
+}
+
+
+
 /* ホームページに戻るを編集するコード(profileディレクトリ以外) */
 .homep_return{
     height: 50px;

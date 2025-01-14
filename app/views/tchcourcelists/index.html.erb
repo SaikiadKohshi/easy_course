@@ -2,22 +2,36 @@
 <html>
   <body>
     <p class="tchHome"> 工学科共通科目 </p>
-    ようこそ！！
+     <p class="headstyle"><span class="headchar">Welcome!!</span></p>
     <div>
-    <% if user_signed_in? %>
+    <p class="postb">
+     <% if user_signed_in? %>
       <%= link_to "投稿する" ,new_tchcourcelist_path %>
-    <% end %>
+     <% end %>
+    </p>
     </div> 
     <% @tchcourcelists.each do |t| %>
-    <div>
-      <p>講義：<%= t.lecture %></p>
-      <p>教授：<%= t.professor %></p>
-      <p>成績内容：<%= t.grade %></p>
-      <p>実録：<%= t.reportage %></p>
-
-      <% if user_signed_in? %>
+    <div class="informationlist">
+      <p class="shorttext">講義：<%= t.lecture %></span>
+      <p class="shorttext">教授：<%= t.professor %></p>
+      <p class="longtext">成績内容
+              <br>
+         <%= t.grade %>
+      </p>
+      <p>
+        <label>
+          実録
+          <br>
+         <span class="longtext">
+           <%= t.reportage %>
+         </span>
+        </label>
+      </p>
+      
+       <% if user_signed_in? %>
         <%= button_to 'Delete', tchcourcelist_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <% end %>
+       <% end %>
+      
     </div>
     <% end %>
     <footer class="homep_return">
