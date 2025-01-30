@@ -3,17 +3,19 @@
   <body>
     <p class="tchHome"> 工学科共通科目 </p>
      <p class="headstyle"><span class="headchar">Welcome!!</span></p>
-    <div>
-    <p class="postb">
-     <% if user_signed_in? %>
-      <%= link_to "投稿する" ,new_tchcourcelist_path %>
-     <% end %>
-    </p>
-    </div> 
+    <% if user_signed_in? %>
+     <div>
+      <p class="postb">
+        <%= link_to "投稿する" ,new_tchcourcelist_path %>
+      </p>
+     </div> 
+    <% end %>
     <% @tchcourcelists.each do |t| %>
     <div class="informationlist">
-      <p class="shorttext">講義：<%= t.lecture %></span>
+     <div id="short">
+      <p class="shorttext">講義：<%= t.lecture %></p>
       <p class="shorttext">教授：<%= t.professor %></p>
+     </div>
       <p class="longtext">成績内容
               <br>
          <%= t.grade %>
@@ -27,13 +29,16 @@
          </span>
         </label>
       </p>
+    
       
        <% if user_signed_in? %>
         <%= button_to 'Delete', tchcourcelist_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
        <% end %>
+     
       
     </div>
     <% end %>
+    <div id="space"></div>
     <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
     </footer>
