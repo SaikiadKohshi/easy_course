@@ -485,16 +485,59 @@
      margin: 0 auto;
      gap: 10px;
 
-     color: #5d627b;
+     //color: #5d627b;
      background: white;
-     border-top: solid 6px #5d627d;
-     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
+     border: 1px solid #5d627b;
+     //border-top: solid 6px #5d627d;
+     //box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
      border-radius: 11.5px;
+     height: 397px
 }
+/* 1つの投稿の枠組み */
+.postli{
+    margin: 0;
+    padding: 15.5px;
+    text-align: center;
+}
+/* 講義・教授と成績内容と実録の空白 */
+#textspace{
+    margin: 0 0 45.45px;
+}
+/* 講義・教授の枠組み */
+#textc{
+    padding: 0;
+    width: 100%;
+}
+/* 講義・教授の文字と記入欄の位置、大きさ調整 */
+#shorttext div{
+    margin: 0 0 6px;
+    text-align: center; //成績・教授の文字
+}
+
+
+
+
+/* 成績内容・実録の枠組み */
+#textlc{
+    padding: 0; //意味なし
+    //width: 100px; これを設定すると左側しかスペースなくなる→謎
+}
+/* 成績内容・実録の文字と記入欄の位置、大きさの調整 */
+#longtext div{
+    margin: 0 0 6px;
+    text-align: center; //成績内容・実録の文字
+}
+/* 講義、教授、成績内容、実録 */
+.postchar{
+    text-decoration: underline;
+}
+
+
+
 
 /* 投稿するボタンデザイン */
 .postb{
-    margin: 11%;
+    margin: 11px;
     padding: 10px;
     text-align: center;
     border-bottom: solid 5px rgb(235, 66, 151);
@@ -510,23 +553,42 @@
 }
 
 /* 成績内容・実録 */
-.longtext{
+/*.longtext{
     font-weight: bold;
     color:rgb(6, 1, 1);
     border-bottom: solid 4px rgb(12, 11, 13); /* 枠組みに影をつけるためのコード */
 
-}
+//}
+
+
+/* 成績内容 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* 投稿サイトの削除ボタンデザイン */
-.deleteb{
+#deleteb{
     text-align: center;
-    border-bottom: solid 5px rgb(32, 158, 183);
+    margin-top: 29px;
+    //border-bottom: solid 5px rgb(32, 158, 183);
 }
 
 /* 投稿内容の余白をつけるためのコード */
 #space{
-    margin-top: 41.3px;
+    margin-top: 61.3px;
 }
 
 

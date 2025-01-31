@@ -79,7 +79,7 @@ class UniversitylivesController < ApplicationController
          @thirdy=Universitylife.where(selsect:"thirdy")
         #検索機能
          @search_executed_3 = params[:filters].present?
-          if search_executed_3
+          if @search_executed_3
             conditions = []
             conditions << "(study IS NOT NULL AND study != '' )" if params[:filters].include?('study')
             conditions << "(parttimejob IS NOT NULL AND parttimejob != '' )" if params[:filters].include?('parttimejob')
@@ -99,7 +99,7 @@ class UniversitylivesController < ApplicationController
          @fourthy=Universitylife.where(selsect:"fourthy")
         #検索機能
          @search_executed_4 = params[:filters].present?
-          if search_executed_4
+          if @search_executed_4
             conditions = []
             conditions << "(study IS NOT NULL AND study != '' )" if params[:filters].include?('study')
             conditions << "(parttimejob IS NOT NULL AND parttimejob != '' )" if params[:filters].include?('parttimejob')

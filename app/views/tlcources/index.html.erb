@@ -2,22 +2,62 @@
 <html>
  <body>
    <p class="tlHome"> 電子情報工学科 </p>
-   ようこそ！
-   <div>
-    <% if user_signed_in? %>
+   <p class="headstyle"><span class="headchar">Welcome!!</span></p>
+   <% if user_signed_in? %>
+    <div> 
+     <p class="postb">
       <%= link_to "投稿する" ,new_tlcource_path %>
-    <% end %>
-   </div>
-   <% @tlcources.each do |t| %>
-    <div>
-      <p>講義：<%= t.lecture %></p>
-      <p>教授：<%= t.professor %></p>
-      <p>成績内容：<%= t.grade %></p>
-      <p>実録：<%= t.reportage %></p>
-      <% if user_signed_in? %>      
-        <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <% end %>
+     </p>
     </div>
+   <% end %>
+   <div id="space"></div>
+   <% @tlcources.each do |t| %>
+   <div class="informationlist">
+    <fieldset class="postli" id="short">
+     <div id="textc">
+      <div id="shorttext">
+        <label for="lectures">
+         <span class="postchar">講義</span>：
+            <%= t.lecture %>
+        </label>
+      </div>
+      <div id="shorttext">
+        <label for="professors">
+          <span class="postchar">教授</span>：
+            <%= t.professor %>
+        </label>
+      </div>
+     </div>
+             <div id="textspace"></div>
+    <div id="textlc">
+      <div id="longtext">
+       <label for="result">
+        <span class="postchar">成績内容</span>
+                <br>
+          <fieldset>
+           <%= t.grade %>
+          </fieldset>
+       </label>
+      </div>
+           <div id="textspace"></div>
+      <div id="longtext">
+        <label for="report">
+          <span class="postchar">実録</span>
+               <br>
+            <fieldset>
+              <%= t.reportage %>
+            </fieldset>
+        </label>
+      </div>
+    </div>
+      <div id="deleteb">
+        <% if user_signed_in? %>      
+          <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
+      </div>
+     </fieldset>
+    </div>
+    <div id="space"></div>
     <% end %>
   <footer class="homep_return">
    <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>

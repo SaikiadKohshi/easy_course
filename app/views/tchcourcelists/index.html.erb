@@ -10,35 +10,57 @@
       </p>
      </div> 
     <% end %>
+    <div id="space"></div>
     <% @tchcourcelists.each do |t| %>
     <div class="informationlist">
-     <div id="short">
-      <p class="shorttext">講義：<%= t.lecture %></p>
-      <p class="shorttext">教授：<%= t.professor %></p>
-     </div>
-      <p class="longtext">成績内容
-              <br>
-         <%= t.grade %>
-      </p>
-      <p>
-        <label>
-          実録
-          <br>
-         <span class="longtext">
-           <%= t.reportage %>
-         </span>
+     <fieldset class="postli" id="short">
+      <div id="textc">
+       <div id="shorttext">
+        <label for="lectures">
+         <span class="postchar">講義</span>：
+          <%= t.lecture %>
         </label>
-      </p>
-    
-      
+       </div>
+       <div id="shorttext">
+        <label for="professors">
+         <span class="postchar">教授</span>：
+          <%= t.professor %>
+        </label>
+       </div>
+      </div>
+               <div id="textspace"></div>
+      <div id="textlc">
+        <div id="longtext">
+         <label for="result">
+           <span class="postchar">成績内容</span>
+                  <br>
+            <fieldset>
+              <%= t.grade %>
+            </fieldset>
+         </label>
+        </div>
+                <div id="textspace"></div>
+        <div id="longtext">
+         <label for="report">
+           <span class="postchar">実録</span>
+                 <br>
+            <fieldset>
+              <%= t.reportage %>
+             <!-- <textarea id="reportages" cols="106" rows="12"> -->
+             <!-- </textarea> -->
+            </fieldset>
+         </label>
+        </div>
+      </div>
+      <div id="deleteb">
        <% if user_signed_in? %>
         <%= button_to 'Delete', tchcourcelist_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
        <% end %>
-     
-      
+      </div>
+     </fieldset>  
     </div>
-    <% end %>
     <div id="space"></div>
+    <% end %>
     <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
     </footer>
