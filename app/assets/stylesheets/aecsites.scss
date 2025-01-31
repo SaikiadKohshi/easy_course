@@ -485,12 +485,12 @@
      margin: 0 auto;
      gap: 10px;
 
-     //color: #5d627b;
-     background: white;
-     border: 1px solid #5d627b;
-     //border-top: solid 6px #5d627d;
-     //box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
-     border-radius: 11.5px;
+     //(没)color: #5d627b;
+     //(没)background: rgb(255, 255, 255);
+     //(没)border: 1px solid #5d627b;  //書く内容によって囲む大きさが変化し、囲み枠の位置が変わるので没
+     //(没)border-top: solid 6px #5d627d;
+     //(没)box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
+     //(没)border-radius: 11.5px;
      height: 397px
 }
 /* 1つの投稿の枠組み */
