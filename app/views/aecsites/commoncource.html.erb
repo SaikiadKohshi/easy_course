@@ -2,24 +2,63 @@
 <html>
   <body>
     <p class="commonHome"> 共通教養科目 </p>
-    ようこそ！！
-    <div>
+    <p class="headstyle"><span class="headchar">Welcome!!</span></p>
     <% if user_signed_in? %>
-      <%= link_to "投稿する" ,aecsites_commoncourcenew_aecsites_path %>
+     <div>
+       <p class="postb">
+         <%= link_to "投稿する" ,aecsites_commoncourcenew_aecsites_path %>
+       </p>
+     </div>
     <% end %>
-    </div>
+    <div id="space"></div>
     <!-- eachと<div>はeachを上に<div>を下に書くまた、</div>とendは</div>を上にendを下に書く -->
     <% @commoncources.each do |t| %>
-     <div>
-      <p>講義：<%= t.lecture %></p>
-      <p>教授：<%= t.professor %></p>
-      <p>成績内容：<%= t.grade %></p>
-      <p>実録：<%= t.reportage %></p>
-      
-      <% if user_signed_in? %>
-        <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-      <% end %>
-     </div>
+    <div class="informationlist">
+      <fieldset class="postil" id="short">
+        <div id="textc">
+          <div id="shorttext">
+            <label for="lectures">
+              <span class="postchar">講義</span>：
+                <%= t.lecture %>
+            </label>
+          </div>
+          <div id="shorttrxt">
+            <label for="professors">
+              <span class="poschar">教授</span>：
+                <%= t.professor %>
+            </label>
+          </div>
+        </div>
+                <div id="textspace"></div>
+        <div id="textlc">
+          <div id="longtext">
+            <label for="result">
+              <span class="postchar">成績内容</span>
+                 <br>
+                <fieldset>
+                 <%= t.grade %>
+                </fieldset>
+            </label>
+          </div>
+                 <div id="textspace"></div>
+          <div id="longtext">
+            <label for="report">
+              <span class="postchar">実録</span>
+                 <br>
+                <fieldset>
+                 <%= t.reportage %>
+                </fieldset>
+            </label>
+          </div>
+        </div>
+          <div id="delete">
+            <% if user_signed_in? %>
+              <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+            <% end %>
+          </div>
+      </fieldset>
+    </div>
+    <div id="space"></div>
     <% end %>
     
     <footer class="homep_return">

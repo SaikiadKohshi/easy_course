@@ -5,7 +5,17 @@
 // 1~4年のリンク先を案内するサイトの編集部分
 
 .grade1{
-    background-color: red;
+    //background-color: red;
+    //background-image: url('');
+    background: url('grade1.jpeg') center/cover no-repeat, rgba(255, 255, 255, 0.5); 
+     //上のコードの役割
+      /*背景画像のセッティング*/
+      /*可変サイズでも背景画像が真ん中に位置し、cover性質も機能する*/
+      /*背景画像を明るい透明画像にする*/
+    background-blend-mode: lighten; /* 背景画面の薄さを明るくする */
+    //background-size: cover;
+    //(没)background-color: rgba(255,255,255,0.562);//背景画像を薄くするためのコード
+    z-index: 1;
     text-align: center;
     border: 0.5px solid #555;
     /*height: 40px;*/
@@ -20,7 +30,14 @@
     transform: scale(1.3,1.3); //ここに触れると、サイズが拡大するコード
 }
 .grade2{
-    background-color: aqua;
+    //background-color: aqua;
+    //background-image: url('grade2.jpeg');
+    background: url('grade2.jpeg') center/cover no-repeat, rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten; /* 背景画面の薄さを明るくする */
+    //background-size: cover;
+    //(没)background-color: rgba(255,255,255,0.562);//背景画像を薄くするためのコード
+    z-index: 1;
+
     text-align: center;
     border: 0.5px solid #555;
     /*height: 40px;*/
@@ -33,7 +50,14 @@
     transform: scale(1.3,1.3);
 }
 .grade3{
-    background-color: cadetblue;
+    //background-color: cadetblue;
+    //background-image: url('grade3.jpeg');
+    background: url('grade3.jpeg') center/cover no-repeat, rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten; /* 背景画面の薄さを明るくする */
+    //(没)background-size: cover;
+    //(没)background-color: rgba(255,255,255,0.562);//背景画像を薄くするためのコード
+    z-index: 1;
+
     text-align: center;
     border: 0.5px solid #555;
     /*height: 40px;*/
@@ -46,7 +70,14 @@
     transform: scale(1.3,1.3);
 }
 .grade4{
-    background-color: chocolate;
+    //background-color: chocolate;
+    //background-image: url('grade4.jpeg');
+    background: url('grade4.jpeg') center/cover no-repeat, rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten; /* 背景画面の薄さを明るくする */
+    //(没)background-size: cover;
+    //(没)background-color: rgba(255,255,255,0.562);//背景画像を薄くするためのコード
+    z-index: 1;
+
     text-align: center;
     border: 0.5px solid #555;
     /*height: 40px;*/
