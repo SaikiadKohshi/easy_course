@@ -7,6 +7,8 @@
 .grade1{
     //background-color: red;
     //background-image: url('');
+
+    /****** 重要 *******/
     background: url('grade1.jpeg') center/cover no-repeat, rgba(255, 255, 255, 0.5); 
      //上のコードの役割
       /*背景画像のセッティング*/
@@ -124,7 +126,7 @@
     /*justify-content: space-between;*/
 }   
 
-// 内容を投稿するサイトを編集する部分
+/* 内容を投稿するサイトを編集する部分 */
 .postunilf{
     text-align: center;
     font-size: 30.1px;
@@ -134,7 +136,81 @@
 
 
 // 1年サイトを編集する部分
+/* 背景全体を編集する部分 */
+#ULsite{
+    //background-color: #e993d2;
+    background-color: #eda2d9;
+    //background-color: #f9eff8;
+    padding: 100px;
+    
+}
+/* 検索を絞る部分の枠組みを編集する部分 */
+#narrowedown{
+    //max-width: 800px;
+    //height: auto;
+    margin: 0 30px 0 30px;
 
+    background-color: rgb(238, 238, 238);
+    //background-color: rgb(130, 254, 212);
+
+    //ulHomeから抜粋
+    //color:rgb(243, 99, 204);
+    //background-color: #f9eff8;
+
+
+}
+/* 検索を絞る部分を編集する部分 */
+.narrowedowns{
+    padding: 15px 0 0 0;
+    text-align: center;
+}
+/* 検索するボタンの部分 */
+.narrowedownb{
+    padding-top: 10px;
+    padding-bottom: 8.2px;
+    text-align: center;
+
+}
+/* 投稿する内容の外枠を編集するコード */
+#postU{
+    padding: 74px;
+    //(没)padding: 32px 0 79px 68px;
+
+    //border:5px bold #302d2d;
+    
+    //(没)z-index: 3;
+}
+/* 投稿する内容の内枠を編集するコード */
+#postU #postlist{
+    border:5px bold #302d2d; //cannot 実行
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 47px;
+
+    background-color: rgb(238, 238, 238);
+    //background-color: #63ce4b;
+    //(没)z-index: 2;
+}
+
+
+/* 学業・バイト・サークル・日常生活・インターンの部分を編集するコード */
+.items{
+    margin: 22px; //それぞれの項目とのスペースを開けるためのコード
+}
+#postlist .itemdisplay{
+    //background-attachment: fixed;
+    background-color: #9b9696;
+    color: rgb(235, 235, 235);
+    text-align: center;
+    //(没)z-index: 1;
+}
+/* 削除ボタンの部分を編集するコード */
+.deleteb{
+    margin: 18.2px 0 0 0;
+    text-align: center;
+
+}
 
 // 2年サイトを編集する部分
 

@@ -263,6 +263,7 @@
     /*align-items: center;*/ /* Center vertically */
 }
 /* 大学生活のボタンの部分 */
+/****** 重要 *******/
 /*.universitystyle p*/ //これだと<p>タグ全部に反映されるので個別に細かく調整する場合はこの書き方はオススメしない
 .universitystyle .universitysylec {
     position: absolute;
@@ -335,7 +336,7 @@
     color: rgb(11, 10, 10);
     z-index: 2;
 }
-
+/****** 重要 *******/
 /* 二つ目の背景画像 */
 .profiledetail{
     position: absolute;
@@ -353,7 +354,7 @@
     z-index: 2;
     
 }
-
+/****** 重要 *******/
 /* 制作者のボタンの部分 */
 .profiledetail .profiledetailc{
      position: absolute;
@@ -477,12 +478,14 @@
      grid-template: auto / repeat(1, 1fr);
      //(没)margin-bottom: auto;
      //(没)margin-left: auto;
-     max-width: 800px;
+
+     
+     max-width: 800px; /******重要*******/
      //(没)align-items: center;
      //(没)justify-content: center;
      //(没)object-fit: contain;
      
-     margin: 0 auto;
+     margin: 0 auto; /******重要*******/
      gap: 10px;
 
      //(没)color: #5d627b;
@@ -553,6 +556,7 @@
       
 }
 
+/* 没コード */
 /* 成績内容・実録 */
 /*.longtext{
     font-weight: bold;
@@ -600,6 +604,7 @@
     font-weight: 30;
     background-color: rgb(137, 42, 42);//テスト用
 }
+/****** 重要 *******/
 /* link_toの文字の色を編集するためのコード */
 /* それぞれの画面に行くボタン */
 .golink{
