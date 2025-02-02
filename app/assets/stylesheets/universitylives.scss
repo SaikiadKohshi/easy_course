@@ -24,10 +24,16 @@
     margin: 47.3px;
     height: 323.8px;
 
+    /* Firstの文字の大きさや位置を調整 */
+    font-size: 30.1px; 
+
 }
 /* ボタンに触れる時、ボタンの大きさが変化させるアニメーションをつけるためのコード */
 .grade1:hover{
     transform: scale(1.3,1.3); //ここに触れると、サイズが拡大するコード
+
+    /* Firstの文字の大きさや位置を調整 */
+    color: rgb(247, 132, 188)
 }
 .grade2{
     //background-color: aqua;
@@ -45,9 +51,16 @@
     /*padding: 13px;*/
     margin: 47.3px;
     height: 323.8px;
+
+    /* Secondの文字の大きさや位置を調整 */
+    font-size: 30.1px;
 }
 .grade2:hover{
     transform: scale(1.3,1.3);
+
+    /* Secondの文字の大きさや位置を調整 */
+    color: rgb(247, 132, 188)
+    
 }
 .grade3{
     //background-color: cadetblue;
@@ -65,9 +78,16 @@
     /*padding: 13px;*/
     margin: 47.3px;
     height: 323.8px;
+
+    /* Thirdの文字の大きさや位置を調整 */
+    font-size: 30.1px;
 }
 .grade3:hover{
     transform: scale(1.3,1.3);
+
+    /* Thirdの文字の大きさや位置を調整 */
+    color: rgb(247, 132, 188)
+
 }
 .grade4{
     //background-color: chocolate;
@@ -85,9 +105,15 @@
     /*padding: 13px;*/
     margin: 47.3px;
     height: 323.8px;
+
+    /* Fourthの文字の大きさや位置を調整 */
+    font-size: 30.1px;
 }
 .grade4:hover{
     transform: scale(1.3,1.3);
+
+    /* Fourthの文字の大きさや位置を調整 */
+    color: rgb(247, 132, 188)
 }
 /* 学年全体の枠組みを編集する部分 */
 .gradeall{
@@ -100,6 +126,8 @@
 
 // 内容を投稿するサイトを編集する部分
 .postunilf{
+    text-align: center;
+    font-size: 30.1px;
     height: 124.9px;
     width: 100%;
 }
