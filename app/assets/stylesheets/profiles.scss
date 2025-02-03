@@ -49,16 +49,19 @@
 }
 /* 自己紹介カードの位置や大きさを編集するコード */
 #bodyintroduce{
-    position: absolute;
-    top: 67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    position: relative;
+    height: 1100px;
+} 
 .card 
 {
             //padding: 41px 0 0 42.7px;
             background: url('marble-texture.jpg') no-repeat center center/cover;
             width: 400px;
+
+    position: absolute;
+    top: 44.4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
             
             padding: 20px;
             border-radius: 15px;
@@ -118,7 +121,12 @@
 }
 
 .profile_return{
-    //width: 100%;
+    
+    position: absolute;
+    top: 97.7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: 50px;
     font-size: 22px;
     font-weight: 30;
@@ -214,13 +222,31 @@
 
 }
 
-
+/* 新規登録、更新部分の外枠を編集するコード */
+/*
+tbody{
+    display: inline-block;
+}
+*/
 
 /* 新規登録、更新部分*/
 .profile_link{
+    position: absolute;
+    top: 85.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     font-size: 16px;
-    margin-top: 20px;
+    //justify-content: space-around;
+    //margin-top: 20px;
     margin-inline: auto; /* これを設定することで要素の左右の余白が自動的に均等され、要素が親要素内で水平中央に配置される */
 }
 
+/* 新規登録、更新部分の間の間隔を調整するコード */
+/*
+.spacelink{
+    //(没)letter-spacing: 24.1px; //文字と文字の間隔を開けるプロパティ
+    margin: 11px;
+}
+*/
 
