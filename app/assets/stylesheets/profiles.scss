@@ -4,6 +4,7 @@
 
 /* Profile画面をデザインするためのファイル　*/
 /* Profile全体の部分 */
+/*
 .profile_exlsv{
     position: relative;
     font-size: 500px;
@@ -11,24 +12,113 @@
     background-size: 90%;
     object-fit: contain;
     text-align: center; /* 文字を真ん中にする */
+/*
     background-repeat: no-repeat;
     background-position: center;
     aspect-ratio: 25/10;
     /*top: 40%;
     left: 73.5%;
     transform: translate(-50%, -50%);*/
+/*
     padding-top: 18.1%;
     background-color:rgb(231, 81, 81);
-}
+}//
 /* Profileの文字の部分 */
+
 .myname{
     font-size: 35px;
     text-align: center;
     margin: 0%;
     background-color: burlywood;//テスト用
 }
+
+/* AIに書かせたもの */
+#bodyprofile 
+{
+    position: relative;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            //display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+
+            
+}
+/* 自己紹介カードの位置や大きさを編集するコード */
+#bodyintroduce{
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card 
+{
+            //padding: 41px 0 0 42.7px;
+            background: url('marble-texture.jpg') no-repeat center center/cover;
+            width: 400px;
+            
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            
+            
+            
+
+}
+.title 
+{
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+}
+.subtitle 
+{
+            font-size: 18px;
+            margin-bottom: 20px;
+}
+.profile-img 
+{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+}
+.info 
+{
+            text-align: left;
+            margin-top: 15px;
+}  
+.info div 
+{
+            margin-bottom: 10px;
+}
+.info span 
+{
+            font-weight: bold;        
+}        
+.message 
+{
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+}
+
+
+
 /* ホームページに戻る部分 */
+.profile_border{
+    position: relative;
+}
+
 .profile_return{
+    //width: 100%;
     height: 50px;
     font-size: 22px;
     font-weight: 30;
@@ -63,7 +153,9 @@
 }
 */
 
+
 /* 管理者(俺)の紹介部分 */
+
 .profile_detail{
     position: absolute;
     /*height: 772px;*/
@@ -93,7 +185,7 @@
 }
 
 /* 投稿内容部分 */
-
+/*
 .mycharacter {
     aspect-ratio: 25/10;
     font-size: 10%;
@@ -101,8 +193,8 @@
     padding-top: 29.1%;
     padding-left: 22.1%;
     */
-    
-}
+   /* 
+}*/
 /* hometownとcollegeの編集部分 */
 /*.mytrace{
     margin-left: 5px;
@@ -112,6 +204,16 @@
 
 
 
+/* 自分を紹介している部分を編集するためのコード */
+.mymessage{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration-line: underline;
+
+
+}
+
 
 
 /* 新規登録、更新部分*/
@@ -120,4 +222,5 @@
     margin-top: 20px;
     margin-inline: auto; /* これを設定することで要素の左右の余白が自動的に均等され、要素が親要素内で水平中央に配置される */
 }
+
 

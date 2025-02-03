@@ -1,45 +1,45 @@
 <!-- profileを示す画像 -->
-<body>
- <p class="myname">制作者　-Profile-</p>
- <div class="profile_exlsv">
-   
-    <div class="profile_detail">
-     <% @profiles.each do |t| %>
-       <div class="mycharacter">
-        <br>
-        <b><%= t.nickname %></b>  
-         <p>      
-            <%= t.age %>
-         </p>
-         <p>
-            <%= t.birthday %>
-         </p>
-         <p>   
-            <%= t.hometown %>
-         </p>
-         <p>
-            <%= t.college %>
-         </p>
-          
-         
-                
-          <p><%= t.character %></p>
-      
-       
-       
-         <table class="profile_link">
-          <tr>
-             <% if user_signed_in? %>
-                <th><%= link_to "登録する" ,new_profile_path %></th>
-                <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
-             <% end %>
-          </tr>
-         </table>
-       </div>
-     <% end %>
-   </div>
- </div>
- <footer class="profile_return">
+<body id="bodyprofile">
+    <header class="myname">制作者　-Profile-</header>
+  <div id="bodyintroduce">
+   <% @profiles.each do |t| %>          
+      <div class="card">
+         <div class="title">About Me</div>
+            <div class="subtitle">自己紹介</div>
+               <img src="profile.jpg" alt="プロフィール写真" class="profile-img">
+            <div class="info">
+               <div><span>名前:</span> <%= t.nickname %> </div>
+               <div><span>年齢:</span> <%= t.age %> </div>
+               <div><span>生年月日:</span> <%= t.birthday %> </div>
+               <div><span>血液型:</span> A型</div>
+               <div><span>出身地:</span> <%= t.hometown %> </div>
+               <div><span>出身高校:</span> 鹿児島中央高校 </div>
+               <div><span>在校大学:</span> <%= t.college %> </div>
+               <div><span>好きなこと:</span> バイク、スポーツ全般、読書</div>
+               <div><span>行ってみたい海外:</span> カナダ、オーストラリア</div>
+               <div><span>目標:</span> 1年で3個webサイト、1つのゲームを開発してリリースすること</div>
+            </div>
+            <div class="message">
+               気軽に声かけてもらえたら嬉しいです！<br>
+               一緒にカフェ巡りできる友達募集中！
+               <%= t.character %>
+            </div>
+         </div>
+         <div>
+           <table class="profile_link">
+             <tr>
+               <% if user_signed_in? %>
+                  <th><%= link_to "登録する" ,new_profile_path %></th>
+                  <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
+               <% end %>
+              </tr>
+           </table>
+         </div>
+   <% end %>
+  
+  
+   <footer class="profile_return">
      <%= link_to 'ホームページに戻る', aecsites_path, class: 'linkp' %>
- </footer>
+   </footer>
+   </div>
 </body>
