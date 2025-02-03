@@ -141,7 +141,7 @@
     //background-color: #e993d2;
     background-color: #eda2d9;
     //background-color: #f9eff8;
-    padding: 100px;
+    padding: 100px 100px 62px 100px; //天 左 底 右
     
 }
 /* 検索を絞る部分の枠組みを編集する部分 */
@@ -191,6 +191,13 @@
     background-color: rgb(238, 238, 238);
     //background-color: #63ce4b;
     //(没)z-index: 2;
+}
+/* 該当する投稿は見つかりませんでしたを編集する部分 */
+#cannotfind{
+    margin: 57px;
+
+    text-align: center;
+    
 }
 
 

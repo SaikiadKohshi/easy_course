@@ -2,46 +2,72 @@
 <!-- third year university student:(イギリス英語)   junior:(アメリカ英語) -->
 <html>
   <body>
-    <p class="ulHome"> Third Year University Student </p>
-    ようこそ！！
-    <%= form_tag({controller:"universitylives",action:"thirdy"},method: :get) do %>
+        <p class="ulHome"> Third Year University Student </p>
+    <div id="ULsite">
+      <div id="narrowedown">
+        <div class="narrowedowns">
+          <%= form_tag({controller:"universitylives",action:"thirdy"},method: :get) do %>
     
-      <%= check_box_tag 'filters[]', 'study', params[:filters]&.include?('study') %>
-      <%= label_tag :filter_study, '学業' %>
+          <%= check_box_tag 'filters[]', 'study', params[:filters]&.include?('study') %>
+          <%= label_tag :filter_study, '学業' %>
   
-      <%= check_box_tag 'filters[]', 'parttimejob', params[:filters]&.include?('parttimejob') %>
-      <%= label_tag :filter_parttimejob, 'バイト' %>
+          <%= check_box_tag 'filters[]', 'parttimejob', params[:filters]&.include?('parttimejob') %>
+          <%= label_tag :filter_parttimejob, 'バイト' %>
   
-      <%= check_box_tag 'filters[]', 'circle', params[:filters]&.include?('circle') %>
-      <%= label_tag :filter_circle, 'サークル' %>
+          <%= check_box_tag 'filters[]', 'circle', params[:filters]&.include?('circle') %>
+          <%= label_tag :filter_circle, 'サークル' %>
   
-      <%= check_box_tag 'filters[]', 'daily', params[:filters]&.include?('daily') %>
-      <%= label_tag :filter_daily, '日常生活' %>
+          <%= check_box_tag 'filters[]', 'daily', params[:filters]&.include?('daily') %>
+          <%= label_tag :filter_daily, '日常生活' %>
   
-      <%= check_box_tag 'filters[]', 'intern', params[:filters]&.include?('intern') %>
-      <%= label_tag :filter_intern, 'インターン' %>
-  
-      
-      <%= submit_tag "検索する" %>
-    <% end %>
-    <% if @no_result_3 %>
-      <p> 該当する投稿は見つかりませんでした。 </p>
-    <% else %>
-     <% @thirdy.each do |t| %>
-      <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
-        <div>
-           <p>学業：<%= t.study %></p>
-           <p>バイト：<%= t.parttimejob %></p>
-           <p>サークル：<%= t.circle %></p>
-           <p>日常生活：<%= t.daily %></p>
-           <p>インターン：<%= t.intern %></p>
-           <% if user_signed_in? %>
-                <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
-           <% end %>
+          <%= check_box_tag 'filters[]', 'intern', params[:filters]&.include?('intern') %>
+          <%= label_tag :filter_intern, 'インターン' %>
         </div>
-      <% end %>
-     <% end %>
-    <% end %>
+                  <br>
+        <div class="narrowedownb">
+          <%= submit_tag "検索する" %>
+        </div>
+          <% end %>
+      </div>
+        <% if @no_result_3 %>
+            <div class="cannotfind"> 該当する投稿は見つかりませんでした。 </div>
+        <% else %>
+          <% @thirdy.each do |t| %>
+            <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
+              <div id="postU">
+                <div id="postlist">
+                  <fieldset>
+                    <legend class="itemdisplay">学業</legend>
+                      <%= t.study %>
+                  </fieldset>
+                  <fieldset>
+                    <legend class="itemdisplay">バイト</legend>
+                      <%= t.parttimejob %>
+                    </legend>
+                  </fieldset>
+                  <fieldset>
+                    <legend class="itemdisplay">サークル</legend>
+                      <%= t.circle %>
+                  </fieldset>
+                  <fieldset>
+                    <legend class="itemdisplay">日常生活</legend>
+                      <%= t.daily %>
+                  </fieldset>
+                  <fieldset>
+                    <legend class="itemdisplay">インターン</legend>
+                      <%= t.intern %>
+                  </fieldset>
+                  <div class="deleteb">
+                    <% if user_signed_in? %>
+                      <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
    <footer class="homep_return">
     <%= link_to '前のページに戻る',intrograde_universitylives_path, class: 'link' %>
    </footer>

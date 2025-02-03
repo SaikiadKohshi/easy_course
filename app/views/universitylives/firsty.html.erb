@@ -29,11 +29,11 @@
         </div>
 
         <% end %>
-  </div>
+   </div>
     
     <% if @no_results_1 %>
-     <div>
-      <div> 該当する投稿は見つかりませんでした。 </div>
+     
+      <div id="cannotfind"> 該当する投稿は見つかりませんでした。 </div>
     <% else %>
      <% @firsty.each do |t| %>
       <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
@@ -71,7 +71,8 @@
   
     <% end %>
    <% end %>
-   </div>
+   
+  </div>
    <footer class="homep_return">
     <%= link_to '前のページに戻る',intrograde_universitylives_path, class: 'link' %>
    </footer>

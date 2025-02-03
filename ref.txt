@@ -3,6 +3,12 @@
  　リンク先
  https://inks.design/7-tips-to-elevate-your-design-quality-a-must-read-to-avoid-tackiness/
 
+ 　大学生活の投稿サイト(フロントデザイン部分)
+ 　リンク先
+ https://developer.mozilla.org/ja/docs/Web/HTML/Element/fieldset
+
+
+
  2.
 
  3.
