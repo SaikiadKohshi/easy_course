@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
       def configure_permitted_parameters
        # サインアップ時にnameとemailのストロングパラメータを追加
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
+       # サインイン時にもemailとpasswordのストロングパラメータを許可
+        devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
        # アカウント編集の時にnameとprofileのストロングパラメータを追加
-       #devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile])
+        devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile])
       end
   
       # Deviseのリダイレクト先を指定

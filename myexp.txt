@@ -4,4 +4,7 @@
  password：mecsite9207
 
 
- 
+実験用のid
+ 名前：mecsitek1
+ メールアドレス：mecsitek1@gmail.com
+ password：mecsitek9001

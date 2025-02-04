@@ -1,7 +1,9 @@
 class ProfilesController < ApplicationController
-    #before_action :set_profile, only: %i[edit update]
-    #before_action :authorize_user, only: :edit    
-
+    
+    #applicationに「before_action :configure_permitted_parameters, if: :devise_controller?」があるため、ログインしてないと全てのviewが非表示になるように設定している
+    #管理者だけしか表示してはいけないもの以外は未ログインでも表示できるように以下のコードを追従
+    #before_action :authenticate_user!, except: [:index, :show]  
+  
     def index
       @profiles = Profile.all
     end
@@ -19,7 +21,9 @@ class ProfilesController < ApplicationController
 
     def create
        @profile = Profile.new(profile_params)
-       if @profile.save
+
+       profile.user_id = current_user_id
+       if profile.save
          redirect_to :action => "index"
        else
          redirect_to :action => "new"
@@ -36,6 +40,9 @@ class ProfilesController < ApplicationController
          #render :edit, alert: 'プロフィールの更新に失敗しました。'
        end
     end
+    
+    #管理者権限を「profile.html.erb」で機能するためのコード
+    
 
     private
 
@@ -50,5 +57,7 @@ class ProfilesController < ApplicationController
     def profile_params
         params.require(:profile).permit(:nickname, :age, :birthday, :hometown, :college, :character)
     end
+
+    
 
 end

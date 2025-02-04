@@ -51,9 +51,10 @@
         </label>
       </div>
     </div>
+      <!-- 作った人しか消せないようにするためのコード -->
       <div id="deleteb">
-        <% if user_signed_in? %>      
-          <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
+        <% if user_signed_in? && current_user.id == t.user_id %>  
+            <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
         <% end %>
       </div>
      </fieldset>
