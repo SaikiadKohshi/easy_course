@@ -55,7 +55,7 @@
 .card 
 {
             //padding: 41px 0 0 42.7px;
-            background: url('marble-texture.jpg') no-repeat center center/cover;
+            background: url('profile_back.png') no-repeat center center/cover;
             width: 400px;
 
     position: absolute;
@@ -90,6 +90,8 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid white;
+
+            //background-image: url('myprofile.jpeg'); //追従
 }
 .info 
 {
