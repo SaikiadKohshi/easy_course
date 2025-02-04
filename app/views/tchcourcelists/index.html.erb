@@ -6,7 +6,7 @@
     <% if user_signed_in? %>
      <div>
       <p class="postb">
-        <%= link_to "投稿する" ,new_tchcourcelist_path %>
+        <%= link_to "投稿する" ,new_tchcourcelist_path ,class:'posttc' %>
       </p>
      </div> 
     <% end %>
@@ -54,7 +54,7 @@
       </div>
       <div id="deleteb">
        <% if user_signed_in? %>
-        <%= button_to 'Delete', tchcourcelist_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <%= button_to 'Delete', tchcourcelist_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
        <% end %>
       </div>
      </fieldset>  

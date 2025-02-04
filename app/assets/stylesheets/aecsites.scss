@@ -500,8 +500,23 @@
      //(没)border-top: solid 6px #5d627d;
      //(没)box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22); /* borderに影をつけるためのコード */
      //(没)border-radius: 11.5px;
-     height: 397px
+     height: 533.9px //投稿内容が重ならないように投稿ごとの間隔を空けるためのコード
 }
+/*　スマホ版の投稿枠組み */
+@media screen and (max-width: 1024px) { 
+    .informationlis{
+        display: grid;
+        grid-template: auto / repeat(1, 1fr);
+
+        max-width: 800px;
+        margin: 0 auto;
+
+        height: 833.9px 
+    }
+    
+}
+
+
 /* 1つの投稿の枠組み */
 .postli{
     margin: 0;
@@ -552,6 +567,43 @@
     font-size: 23.3px;
     border-bottom: solid 5px rgb(235, 66, 151);
 }
+/* 投稿するボタン */
+/* 共通教養科目の投稿ボタンのデザインを編集するコード */
+.postwc{
+    background: linear-gradient(to right, #ff2f00 0%, #fe7627 45%, #f3a95e 100%);
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 200% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
+/* 工学科共通科目の投稿ボタンのデザインを編集するコード */
+.posttc{
+    background: linear-gradient(to right, #0077ff 0%, #27a1fe 45%, #5ed5f3 100%);
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 200% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
+/* 電子情報工学科の投稿ボタンのデザインを編集するコード */
+.posttl{
+    background: linear-gradient(to right, #404040 0%, #575757 45%, #a8a8a8 100%);
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 200% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
 
 /* 講義・教授のデザイン部分 */
 
@@ -595,6 +647,27 @@
     text-align: center;
     margin-top: 29px;
     //border-bottom: solid 5px rgb(32, 158, 183);
+
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 50% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
+/* 削除ボタンを編集するコード */
+.deletebutton{
+    background: linear-gradient(to right, #a4a4a4 0%, #c8c7c7 45%, #e0dfdf 100%);
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 50% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
 }
 
 /* 投稿内容の余白をつけるためのコード */

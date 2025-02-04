@@ -6,12 +6,13 @@
    <% if user_signed_in? %>
     <div> 
      <p class="postb">
-      <%= link_to "投稿する" ,new_tlcource_path %>
+      <%= link_to "投稿する" ,new_tlcource_path ,class: 'posttl' %>
      </p>
     </div>
    <% end %>
    <div id="space"></div>
    <% @tlcources.each do |t| %>
+   
    <div class="informationlist">
     <fieldset class="postli" id="short">
      <div id="textc">
@@ -52,7 +53,7 @@
     </div>
       <div id="deleteb">
         <% if user_signed_in? %>      
-          <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+          <%= button_to 'Delete', tlcource_path(t), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
         <% end %>
       </div>
      </fieldset>

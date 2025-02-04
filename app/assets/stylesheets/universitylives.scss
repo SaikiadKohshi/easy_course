@@ -164,13 +164,27 @@
     padding: 15px 0 0 0;
     text-align: center;
 }
-/* 検索するボタンの部分 */
+/* 検索するボタンの外枠を編集する部分 */
 .narrowedownb{
     padding-top: 10px;
     padding-bottom: 8.2px;
     text-align: center;
 
 }
+/* 検索するボタンを編集する部分 */
+.search{
+    background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #eecdff 100%);
+    //background: linear-gradient(to right, #ff008c 0%, #ff7ff6 45%, #e6cdff 100%);
+    background-size: 200% auto;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: .5s;
+}
+
+
 /* 投稿する内容の外枠を編集するコード */
 #postU{
     padding: 74px;

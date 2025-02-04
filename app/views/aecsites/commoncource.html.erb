@@ -6,7 +6,7 @@
     <% if user_signed_in? %>
      <div>
        <p class="postb">
-         <%= link_to "投稿する" ,aecsites_commoncourcenew_aecsites_path %>
+         <%= link_to "投稿する" ,aecsites_commoncourcenew_aecsites_path ,class:'postwc' %>
        </p>
      </div>
     <% end %>
@@ -53,7 +53,7 @@
         </div>
           <div id="delete">
             <% if user_signed_in? %>
-              <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+              <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
             <% end %>
           </div>
       </fieldset>
