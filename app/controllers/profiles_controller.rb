@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
        end
     end
     
-    #管理者権限を「profile.html.erb」で機能するためのコード
+    
     
 
     private

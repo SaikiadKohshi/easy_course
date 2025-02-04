@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_04_084407) do
+ActiveRecord::Schema.define(version: 2025_02_04_120236) do
 
   create_table "aecsites", force: :cascade do |t|
     t.string "lecture"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2025_02_04_084407) do
     t.text "reportage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 2025_02_04_084407) do
     t.text "reportage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "tlcources", force: :cascade do |t|
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2025_02_04_084407) do
     t.text "reportage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "universitylives", force: :cascade do |t|

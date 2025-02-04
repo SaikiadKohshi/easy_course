@@ -52,7 +52,8 @@
           </div>
         </div>
           <div id="delete">
-            <% if user_signed_in? %>
+            <!-- 自分が投稿したものだけ削除できるようにするためのコード -->
+            <% if user_signed_in? && current_user_id == t.user_id %>
               <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
             <% end %>
           </div>
