@@ -2,11 +2,19 @@
 <body id="bodyprofile">
     <header class="myname">制作者　-Profile-</header>
   <div id="bodyintroduce">
+      <% if user_signed_in? && current_user.admin? %>
+            <table class="profile_link">
+               <tr> 
+                  <th><%= link_to "新規登録する" ,new_profile_path %></th>
+                </tr>
+            </table>
+      <% end %>
+   <% if @profiles.present? %>
    <% @profiles.each do |t| %>          
       <div class="card">
          <div class="title">About Me</div>
             <div class="subtitle">自己紹介</div>
-               <!-- <img src="myprofile.jpeg" alt="プロフィール写真" class="profile-img"> → これだと画像が出てこない -->
+               <!-- このコードだと表示されない<img src="myprofile.jpeg" alt="プロフィール写真" class="profile-img"> → これだと画像が出てこない -->
                <%= image_tag "myprofile.jpeg", alt: "プロフィール写真", class: "profile-img" %>
             <div class="info">
                <div><span>名前:</span> <%= t.nickname %> </div>
@@ -22,7 +30,7 @@
             </div>
             <div class="message">
                気軽に声かけてもらえたら嬉しいです！<br>
-               一緒にカフェ巡りできる友達募集中！
+               一緒にカフェ巡りできる友達募集中！<br>
                <%= t.character %>
             </div>
          </div>
@@ -37,8 +45,10 @@
              </table>
             <% end %>
          
+    <% end %>
+   <% else %>
+   <p>プロフィール情報がありません</p>
    <% end %>
-  
   
    <footer class="profile_return">
      <%= link_to 'ホームページに戻る', aecsites_path, class: 'linkp' %>

@@ -231,7 +231,7 @@ tbody{
 }
 */
 
-/* 新規登録、更新部分*/
+/* 新規登録、更新部分 */
 .profile_link{
     position: absolute;
     top: 85.5%;
@@ -240,8 +240,24 @@ tbody{
 
     font-size: 16px;
     //justify-content: space-around;
+    //justify-content: space-around;
     //margin-top: 20px;
     margin-inline: auto; /* これを設定することで要素の左右の余白が自動的に均等され、要素が親要素内で水平中央に配置される */
+
+
+}
+/* 新規登録、更新部分のスペースを調整するためのコード */
+.profile_link th {
+    padding: 10px 12px; /* セルの内側に余白を追加してリンク同士を離す */
+    //.profile_link th で、リンクを含むセルに対してパディングを追加しています。これにより、セルの内側に余白ができ、リンク同士が自然に離れます。
+}
+.spacelink {
+    width: 80.8px; /* スペースの幅を設定して、リンクを離す */
+    //.spacelink では、リンク間の幅を調整しています。width: 20px; で、リンク間に20pxのスペースを追加しています。
+}
+.profile_link th a {
+    text-decoration: none; /* リンクの下線を削除（任意） */
+    //.profile_link th a で、リンクのスタイル（例えば下線）を変更したい場合に指定しています。下線を削除したい場合は、このスタイルを追加します。
 }
 
 /* 新規登録、更新部分の間の間隔を調整するコード */
