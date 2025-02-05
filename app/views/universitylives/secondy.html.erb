@@ -60,7 +60,7 @@
                   <div class="deleteb">
                    <!-- 自分が投稿したものだけ削除できるようにするためのコード -->
                    <% if user_signed_in? && current_user.id == t.user_id %>
-                     <%= button_to 'Delete', universitylife_path(t.id), method: :delete %>
+                     <%= button_to 'Delete', universitylife_path(t.id), method: :delete, class: "deletebutton" %>
                    <% end %>
                   </div>
                 </div>
