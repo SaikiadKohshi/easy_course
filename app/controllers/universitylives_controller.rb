@@ -127,9 +127,9 @@ class UniversitylivesController < ApplicationController
             conditions << "(intern IS NOT NULL AND intern != '' )" if params[:filters].include?('intern')
             conditions << "(user_id IS NOT NULL AND user_id != '' )" if params[:filters].include?('user_id')
          
-            @fourth=@fourth.where(conditions.join(" OR ")) if conditions.any?
+            @fourthy=@fourthy.where(conditions.join(" OR ")) if conditions.any?
           end
-            @no_results_4 = @search_executed_4 && @fourth.empty?
+            @no_results_4 = @search_executed_4 && @fourthy.empty?
 
 
      end

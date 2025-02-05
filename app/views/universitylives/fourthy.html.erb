@@ -29,8 +29,8 @@
         </div>
           <% end %>
       </div>
-        <% if @no_result_4 %>
-            <div class="cannotfind"> 該当する投稿は見つかりませんでした。 </div>
+        <% if @no_results_4 %>
+            <div id="cannotfind"> 該当する投稿は見つかりませんでした。</div>
         <% else %>
           <% @fourthy.each do |t| %>
             <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
