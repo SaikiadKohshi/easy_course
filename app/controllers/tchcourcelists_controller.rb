@@ -10,6 +10,7 @@ class TchcourcelistsController < ApplicationController
 
     def create
         @tchcourcelist = Tchcourcelist.new(tchcourcelist_params)
+        @tchcourcelist.user_id = current_user.id  # ログインユーザーのIDを設定
         if @tchcourcelist.save
             redirect_to tchcourcelists_path, notice: 'Tchcourcelistを投稿しました'
         else 
@@ -27,7 +28,7 @@ class TchcourcelistsController < ApplicationController
     private
     
     def tchcourcelist_params
-       params.require(:tchcourcelist).permit(:lecture, :professor, :grade, :reportage)
+       params.require(:tchcourcelist).permit(:lecture, :professor, :grade, :reportage, :user_id)
     end
 
 

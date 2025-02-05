@@ -15,6 +15,7 @@ class TlcourcesController < ApplicationController
       #新規投稿機能の中身
       def create
         @tlcource = Tlcource.new(tlcource_params)
+        @tlcource.user_id = current_user.id  # ログインユーザーのIDを設定
         if @tlcource.save
           redirect_to tlcources_path, notice: 'Tlcourceを投稿しました'
         else
@@ -34,7 +35,7 @@ class TlcourcesController < ApplicationController
       private
     
       def tlcource_params
-        params.require(:tlcource).permit(:lecture, :professor, :grade, :reportage)
+        params.require(:tlcource).permit(:lecture, :professor, :grade, :reportage, :user_id)
       end
     
 end

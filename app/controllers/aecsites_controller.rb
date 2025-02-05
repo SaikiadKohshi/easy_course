@@ -51,6 +51,7 @@ class AecsitesController < ApplicationController
     #共通教養科目の投稿処理
   def create_commoncource
     @commoncource = Aecsite.new(commoncource_params)
+    @commoncource.user_id = current_user.id  # ログインユーザーのIDを設定
     if @commoncource.save
       redirect_to commoncource_aecsites_path, notice: 'Commoncourceを投稿しました'
     else
@@ -157,7 +158,7 @@ class AecsitesController < ApplicationController
     #end
 
     def commoncource_params
-        params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage)
+        params.require(:aecsite).permit(:lecture, :professor, :grade, :reportage, :user_id)
     end
 
     #def tchcourcelist_params
