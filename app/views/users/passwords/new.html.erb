@@ -1,16 +1,30 @@
-<h2>Forgot your password?</h2>
+<html>
+<body>
+  <div id="user_link">
+    <div id="user_container">
+      <h1 class="mycompany_logo">SiteK(株)</h1>
+        <div id="repassword_box">
+          <h2 class="repassword">Forgot your password?</h2>
+          <div class="formbox">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  <div class="field">
+                    <span class="repassword_char"> <%= f.label :email %><br /></span>
+                    <div class="repassword_input">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit "Send me reset password instructions" %>
+                  </div>
+              <% end %>
+          </div>
+        </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
+</body>
+</html>
 <%= render "users/shared/links" %>

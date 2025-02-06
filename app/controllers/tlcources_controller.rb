@@ -23,8 +23,6 @@ class TlcourcesController < ApplicationController
         end
       end
     
-      
-
       #削除機能
       def destroy
         @tlcource = Tlcource.find(params[:id])

@@ -1,0 +1,235 @@
+/* Log_in Sign_up のファイルをデザインするコード */
+/******** 重要 *********/
+/* <!-- body class="~"のようにbodyで設定してしまうと、
+   application.scssで設定したデザインにも反映されて大きさや位置が変わったりするので
+   application.scssで設定したものをそのまま別のサイトに反映したかったら、
+   body class="~"やid="~"などの設定をしない --> */
+
+/* ログイン、登録サイトの共通デザイン */
+#user_link{
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+
+}
+#user_container{
+    text-align: center;
+}
+/* SiteKの文字の部分 */
+.mycompany_logo{
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 23px;
+
+}
+/* Log in ボタン及び Sign up ボタンを押す部分を編集するコード */
+.actions{
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+
+/* Log_inサイトのフロントデザインを編集するコード */
+
+/* log_in boxの枠組み設定を編集するコード */
+#log-in_box{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+/* Log in の文字を編集するコード */
+.log-in{
+    //font-size: 20px;
+    margin-bottom: 20px;
+}
+/* Google、X、Appleの枠組みを設定するコード */
+.social-login{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+/* google、X、Appleの骨格を編集するコード */
+.social-btn{
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* googleの部分を編集するコード */
+.google{
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+/* Xの部分を編集するコード */
+.twitter{
+    background-color: #000;
+    color: white;
+}
+/* Appleの部分を編集するコード */
+.apple{
+    background-color: black;
+    color: white;
+}
+/* name,e-mail,passwordの入力欄の骨格を編集するコード */
+.formbox{
+    display: flex;
+    flex-direction: column;
+}
+/* name,e-mail,passwordの入力欄を編集するコード */
+.field{
+    max-width: 1100px;
+    margin: 0 auto;
+    //justify-content: space-between;
+}
+/* name,e-mail,passwordの文字を編集するコード */
+.field .log-in_char{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+/* name,e-mail,passwordの入力欄を編集するコード */
+.field .log-in_input{
+    padding: 10px;
+    //border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+/* Remenber meの骨格を編集するコード */
+.field_selsect{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+}
+/* Remenber meを編集するコード */
+.field_selsect .log-in_checkbox{
+    font-size: 14px;
+    margin-bottom: 23px;
+}
+
+
+
+
+
+
+
+/* Sign upサイトのフロントデザインを編集するコード */
+/* sign_up boxの枠組み設定を編集するコード */
+#sign-up_box{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+/* Sign up の文字を編集するコード */
+.sign-up{
+    //font-size: 20px;
+    margin-bottom: 20px;
+}
+/* Google、X、Appleの枠組みを設定するコード */
+.social-signup{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+/* google、X、Appleの骨格を編集するコード */
+.social-btn{
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* googleの部分を編集するコード */
+.google{
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+/* Xの部分を編集するコード */
+.twitter{
+    background-color: #000;
+    color: white;
+}
+/* Appleの部分を編集するコード */
+.apple{
+    background-color: black;
+    color: white;
+}
+
+/* name,e-mail,passwordの入力欄を編集するコード */
+.field{
+    max-width: 1100px;
+    margin: 0 auto;
+    //justify-content: space-between;
+}
+/* name,e-mail,passwordの文字を編集するコード */
+.field .sign-up_char{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+/* name,e-mail,passwordの入力欄を編集するコード */
+.field .sign-up_input{
+    padding: 10px;
+    //border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+
+
+/* パスワード再設定サイトのフロントデザインを編集するコード */
+/* repassword boxの枠組み設定を編集するコード */
+#repassword_box{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+/* repasswordの文字を編集するコード */
+.repassword{
+    //font-size: 20px;
+    margin-bottom: 20px;
+}
+/* passwordの入力欄を編集するコード */
+.field{
+    max-width: 1100px;
+    margin: 0 auto;
+    //justify-content: space-between;
+}
+/* passwordの文字を編集するコード */
+.field .repassword_char{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+/* passwordの入力欄を編集するコード */
+.field .repassword_input{
+    padding: 10px;
+    //border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
