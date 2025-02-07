@@ -4,25 +4,58 @@
  <body>
    <p class="tlHome"> 電子情報工学科 </p>
    
-   <%= form_with model: @tlcource,  url: tlcources_path, local: true do |post| %>
-    <%= hidden_field_tag :model, "tlcource" %>
-    <div>
-      <p>講義</p>
-      <%= post.text_field :lecture, placeholder:"講義" %>
+   <div class="post-container">
+      
+          <%= form_with model: @tlcource,  url: tlcources_path, local: true do |post| %>
+            <%= hidden_field_tag :model, "tlcource" %>
+          
 
-      <p>教授</p>
-      <%= post.text_field :professor, placeholder:"教授" %>
+            
+              
+              <div class="form-group">
+                <%= post.text_field :lecture, class: "form-input", placeholder:"                                                    講義名を入れてください" %>
+                <label class="form-label">講義</label>
+              </div>
 
-      <p>成績内容</p>
-      <%= post.text_field :grade, placeholder:"シラバス上にある成績評価を書いてください" %>
+            
 
-      <p>テスト評価</p>
-      <%= post.text_field :reportage,    placeholder: "テストの内容もしくは単位の取得方法を書いてください" %>
+          
+              
+              <div class="form-group">
+                <%= post.text_field :professor, class: "form-input", placeholder:"                                                    教授名を入れてください" %>
+                <label class="form-label">教授</label>
+              </div>
 
-      <p>post</p>
-      <%= post.submit "投稿する" %>
-    </div>
-   <% end %>
+            
+
+            
+              
+              <div class="form-group">
+                <%= post.text_field :grade, class: "form-input", placeholder:"                                       シラバス上にある成績評価を書いてください" %>
+                <label class="form-label">成績内容</label>
+              </div>
+
+           
+
+            
+              
+              <div class="form-group">
+                <%= post.text_field :reportage, class: "form-input",  placeholder:"                               テストの内容もしくは単位の取得方法を書いてください" %>
+                <label class="form-label">テスト評価</label>
+              </div>
+
+            
+
+            
+              
+              <div class="form-submit">
+                <%= post.submit "投稿する", class: "submit-btn_1" %>
+              </div>
+            
+          
+          <% end %>
+      
+   </div>
    <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
    </footer>

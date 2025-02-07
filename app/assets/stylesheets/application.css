@@ -165,6 +165,9 @@ footer{
     transform: translateY(-2px);
 }
 
+
+
+
 /* Sign up、Log in、Password全てに共通するクラス */ 
 /* 案内内容の部分を編集するコード */
 .user_char{
@@ -177,9 +180,16 @@ footer{
     padding: 50px;
 }
 /* ホームページに戻るの文字やアニメーションを編集するコード */
-/*
+/* link_toの文字の色を編集するためのコード */
 .link_user{
+    text-decoration: none;/* 下線を削除 */
+    color: rgb(1, 0, 0); /* ホバー時に色を黒に変更 */
 
 
 }
-*/
+/* linkボタンに触れた時のlinkボタンを編集するためのコード */
+.link_user:hover{
+    color: rgb(255, 108, 160);
+    text-decoration: underline; /* ホバー時に下線を表示 */
+
+}

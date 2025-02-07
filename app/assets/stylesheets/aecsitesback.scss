@@ -1,0 +1,202 @@
+/* 投稿する内容を入力するサイトのデザインを編集するためのディレクトリ */
+
+/* 共通教養科目、工学科共通科目、電子情報工学科の共通デザイン */
+/* ====== フォームの全体デザイン ====== */
+.post-container {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    width: 600px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    border: 1px solid #ddd;
+}
+
+/* ====== 各入力エリア ====== */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* ====== ラベル (フォーカス時にアニメーション) ====== */
+.form-label {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 14px;
+    color: #6c757d;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* ====== 入力フィールド ====== */
+.form-input {
+    width: 100%;
+    padding: 12px 10px;
+    border: 2px solid #ced4da;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ====== フォーカス時のラベルアニメーション ====== */
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -12px;
+    left: 8px;
+    font-size: 12px;
+    color: #007bff;
+    background: white;
+    padding: 0 5px;
+}
+
+/* ====== フォーカス時の入力枠 ====== */
+.form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* ====== ボタンデザイン ====== */
+.submit-btn_1 {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== ボタンのホバー時 ====== */
+.submit-btn_1:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 大学生活のデザイン */
+.universitylife_image{
+    font-family: 'Poppins', sans-serif;
+        background: #f7f7f7;
+        margin: 0;
+        padding: 0;
+}
+.post-container_universitylife{
+    background: #ffffff;
+        width: 750px;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 40px auto;
+        border: none;
+        background-color: #ffffff;
+        transition: transform 0.3s ease;
+}
+.post-container_universitylife:hover {
+    transform: translateY(-5px); /* カードが浮いているようなエフェクト */
+}
+.section-title_universitylife{
+    font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #34495e;
+        text-align: center;
+}
+.form-group_universitylife{
+    display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+}
+.form-group_universitylife .form-contents{
+    font-size: 16px;
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 10px;
+}
+/* フォーム入力欄 */
+.contents{
+    padding: 14px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 14px;
+        background: #f3f4f7;
+        color: #2c3e50;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+}
+.contents:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+.contents::placeholder {
+    color: #aaa;
+}
+
+.form-group select {
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: #f3f4f7;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus {
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* 投稿ボタン */
+.form-group_universitylife{
+    display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+
+}
+.submit-btn_2 {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn_2:hover {
+    background: linear-gradient(135deg, #2980b9, #27ae60);
+    transform: translateY(-2px);
+}
+
+.submit-btn_2:active {
+    transform: translateY(2px); /* ボタンの押した時のエフェクト */
+}
+

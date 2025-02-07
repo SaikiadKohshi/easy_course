@@ -1,36 +1,42 @@
 <!-- ここはログインidを持っている人にしか見れないもので大学1~4年生の生活スタイルを投稿するためのファイル -->
 <html>
  <body>
-   <div>
-    <p> 投稿 大学1~4年 </p>
+  <div class="universitylife_image">
+   <div class="post-container_universitylife">
+    <p class="section-title_universitylife"> 投稿 大学1~4年 </p>
     <p> ここでは全部の概要を記述する必要はないです。伝えたいことの概要のみで大丈夫です🙂 </p>
-   </div>
-    <%= form_with model: @universitylife, url: universitylives_path, local: true do |post| %>
-     <%= hidden_field_tag :model, "universityslife" %>
-     <div>
-       <p>学年選択</p>
-       <%= post.select :selsect,[["大学1年生","firsty"],["大学2年生","secondy"],["大学3年生","thirdy"],["大学4年生","fourthy"]], include_blank: "投稿したい学年を選択してください" %>
-
-       <p>学業</p>
-       <%= post.text_field :study, placeholder:"勉学の取り組み方について記述してください" %>
-
-       <p>バイト</p>
-       <%= post.text_field :parttimejob, placeholder:"バイトの取り組み方について記述してください"  %>
-
-       <p>サークル</p>
-       <%= post.text_field :circle, placeholder:"サークルの取り組み方について記述してください" %>
-
-       <p>日常生活</p>
-       <%= post.text_field :daily, placeholder:"学校外の日常の取り組み方について記述してください" %>
-
-       <p>インターン</p>
-       <%= post.text_field :intern, placeholder:"インターン活動の取り組みについて記述してください" %>
-
-       <p>post</p>
-       <%= post.submit "投稿する" %>
-
-     </div>
-    <% end %>
+      <%= form_with model: @universitylife, url: universitylives_path, local: true do |post| %>
+          <%= hidden_field_tag :model, "universityslife" %>
+        <div  class="form-group_universitylife">
+          <label class="form-select">学年選択</label>
+            <%= post.select :selsect,[["大学1年生","firsty"],["大学2年生","secondy"],["大学3年生","thirdy"],["大学4年生","fourthy"]], include_blank: "投稿したい学年を選択してください" ,class: "select" %>
+        </div>
+        <div  class="form-group_universitylife">
+          <label class="form-contents">学業</label>
+            <%= post.text_field :study, placeholder:"勉学の取り組み方について記述してください",class: "contents" %>
+        </div>
+        <div  class="form-group_universitylife">
+          <label class="form-contents">バイト</label>
+          <%= post.text_field :parttimejob, placeholder:"バイトの取り組み方について記述してください",class: "contents"  %>
+        </div>
+        <div  class="form-group_universitylife">
+          <label class="form-contents">サークル</label>
+            <%= post.text_field :circle, placeholder:"サークルの取り組み方について記述してください",class: "contents" %>
+        </div>
+        <div  class="form-group_universitylife">
+          <label class="form-contents">日常生活</label>
+            <%= post.text_field :daily, placeholder:"学校外の日常の取り組み方について記述してください",class: "contents" %>
+        </div>
+        <div  class="form-group_universitylife">
+          <label class="form-contents">インターン</label>
+            <%= post.text_field :intern, placeholder:"インターン活動の取り組みについて記述してください",class: "contents" %>
+        </div>
+        <div class="form-group_universitylife">
+            <%= post.submit "投稿する", class: "submit-btn_2"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
     <footer class="homep_return">
      <%= link_to 'ホームページに戻る',aecsites_path, class: 'link' %>
     </footer>
