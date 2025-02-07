@@ -24,7 +24,162 @@ footer{
 
 /* 下のコードは他サイトで表示されているものを編集するコード */
 /* Sign upを編集するコード */
+.user_share_sign-up{
+    position: relative;
+    padding: 79.1px 0 22.1px 0;
+
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+.user_share_detail_sign-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* ボタン間の間隔 */
+
+}
+.user_share_detail_sign-up a{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 34px;
+    text-decoration: none;
+    color: #fff;
+    background: #ff0040;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+
+    min-width: 120px; /* ボタンのサイズを統一 */
+
+}
+.user_share_detail_sign-up a:hover{
+    background: #b30033;
+    box-shadow: 0px 4px 8px rgba(187, 0, 53, 0.3);
+    transform: translateY(-2px);
+}
 
 /* Forgot your password?を編集するコード */
+.user_share_password{
+    
+    position: relative;
+
+    padding: 79.1px 0 22.1px 0;
+    
+
+
+
+    /*background-color: #f9f9f9;*/
+   
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+}
+.user_share_detail_password{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* ボタン間の間隔 */
+}
+.user_share_detail_password a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 34px;
+    text-decoration: none;
+    color: #fff;
+    background: #007BFF;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+
+    min-width: 120px; /* ボタンのサイズを統一 */
+}
+
+.user_share_detail_password a:hover {
+    background: #0056b3;
+    box-shadow: 0px 4px 8px rgba(0, 91, 187, 0.3);
+    transform: translateY(-2px);
+}
+
 
 /* Log inを編集するコード */
+.user_share_log-in{
+    position: relative;
+    padding: 79.1px 0 22.1px 0;
+
+    background: linear-gradient(135deg, #f9f9f9, #ececec);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+.user_share_detail_log-in{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* ボタン間の間隔 */
+
+}
+.user_share_detail_log-in a{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 34px;
+    text-decoration: none;
+    color: #fff;
+    background: #15bfbc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 12px;
+
+    min-width: 120px; /* ボタンのサイズを統一 */
+
+}
+.user_share_detail_log-in a:hover{
+    background: #00b392;
+    box-shadow: 0px 4px 8px rgba(0, 181, 187, 0.305);
+    transform: translateY(-2px);
+}
+
+/* Sign up、Log in、Password全てに共通するクラス */ 
+/* 案内内容の部分を編集するコード */
+.user_char{
+     margin-top: 35px;
+}
+/* ホームページに戻る部分 */
+.homep_return_user{
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+}
+/* ホームページに戻るの文字やアニメーションを編集するコード */
+/*
+.link_user{
+
+
+}
+*/

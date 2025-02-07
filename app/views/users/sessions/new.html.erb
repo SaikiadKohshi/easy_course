@@ -52,7 +52,18 @@
         </div>
       </div>
   </div>
+  <div class="homep_return_user">
+     <%= link_to 'ホームページに戻る' ,aecsites_index_path, class: 'link_user' %>
+  </div>
  </div>
+
+<div class="user_share_log-in">
+ <p class="user_char">登録がまだの方もしくは、パスワードを忘れた方は上をクリック</p>
+ <div class="user_share_detail_log-in">
+ <!-- これは、ログイン、サインアップ、パスワード再設定全てに反映されるコード -->
+<%= render "users/shared/links" %>
+ </div>
+</div>
+
 </body>
 </html>
-<%= render "users/shared/links" %>
