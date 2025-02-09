@@ -38,7 +38,7 @@
             <% if user_signed_in? && current_user.admin? %>
              <table class="profile_link">
                <tr> 
-                  <th><%= link_to "登録する" ,new_profile_path %></th>
+                  <th><%= link_to "追加する" ,new_profile_path %></th>
                   <th class="spacelink"></th>
                   <th><%= link_to "編集する" ,edit_profile_path(t.id) %></th>
                 </tr>

@@ -1,15 +1,36 @@
 <!-- ここは管理者のプロフィールを編集するファイル -->
 <html>
  <body>
-   <div>
-     <%= form_with model: @profile, local: true do |post| %>
-        <%= post.text_field :nickname, placeholder:"名前" %>
-        <%= post.text_field :age, placeholder:"年齢" %>
-        <%= post.text_field :birthday, placeholder:"誕生日" %>
-        <%= post.text_field :hometown, placeholder:"出身" %>
-        <%= post.text_field :college, placeholder:"大学" %>
-        <%= post.text_field :character, :size=>231 ,placeholder:"紹介文" %>
-        <%= post.submit "更新する" %>
+   <div class="form-container_profile">
+   <h2 class="form-title_profile">プロフィール更新</h2>
+      <%= form_with model: @profile, local: true do |post| %>
+        <div class="form-group_profile">
+          <%= post.label :nickname, "名前*", class: "form-label_profile" %>
+          <%= post.text_field :nickname, placeholder:"名前", class: 'form-input_profile' %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.label :age, "年齢*", class: "form-label_profile" %>
+          <%= post.text_field :age, placeholder:"年齢", class: 'form-input_profile' %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.label :birthday, "誕生日*", class: "form-label_profile" %>
+          <%= post.text_field :birthday, placeholder:"誕生日", class: 'form-input_profile' %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.label :hometown, "出身*", class: "form-label_profile" %>
+          <%= post.text_field :hometown, placeholder:"出身", class: 'form-input_profile' %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.label :college, "大学*", class: "form-label_profile" %>
+          <%= post.text_field :college, placeholder:"大学", class: 'form-input_profile' %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.label :character, "紹介文", class: "form-label_profile" %>
+          <%= post.text_field :character, :size=>231 ,placeholder:"紹介文", class: "form-textarea-large", oninput: "autoResize(this)" %>
+        </div>
+        <div class="form-group_profile">
+          <%= post.submit "更新する", class: "form-submit_profile" %>
+        </div>
      <% end %>
    </div>
    <footer class="homep_return">

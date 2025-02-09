@@ -268,3 +268,121 @@ tbody{
 }
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 新規登録するディレクトリを編集するコード */
+/* フォームのコンテナ */
+.form-container_profile {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+/* タイトルと説明文 */
+.form-title_profile{
+    font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.form-subtitle{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+/* 各入力フィールドのグループ */
+.form-group_profile{
+    text-align: left;
+    margin-bottom: 15px;
+}
+  
+/* ラベル */
+.form-label_profile{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+ 
+/* テキストフィールド */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  
+/* テキストエリア */
+.form-textarea {
+    height: 100px;
+    resize: vertical;
+}
+/* 大きな入力欄 */
+.form-textarea-large {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+
+    /*************  重要 ************/
+    /* 入力した文章がすべて表示されるようにするには、*/
+    /* height の固定値を使わずに min-height を設定し、かつ overflow-y: auto; を適用します。*/
+    /* これにより、長い文章を入力すると自動でフィールドが拡大し、スクロールも可能になります。*/
+    //min-height: 180px;  /* 最小高さを設定 */
+    //max-height: 400px;  /* 最大高さを設定 */
+    //overflow-y: auto;  /* 内容が増えたらスクロール可能に */
+    //resize: vertical;  /* ユーザーがサイズ変更可能 */
+    //line-height: 1.6;  /* 行間を広げて見やすく */
+    //white-space: pre-wrap;  /* 入力した改行をそのまま反映 */
+
+ 
+    /* Javascriptを加えて自動調整する方法 */
+    /* overflow-y: hidden; にして、スクロールバーではなく 高さを自動調整。 
+👉     resize: none; にして、ユーザーのリサイズを無効化（JSで調整するため）。*/
+    min-height: 180px;  /* 最小高さ */
+    max-height: 400px;  /* 上限を設定 */
+    overflow-y: hidden;  /* スクロールバーを非表示（JSで高さを調整するため） */
+    resize: none;  /* ユーザーによるリサイズを無効化（JSで調整するため） */
+    line-height: 1.6;  /* 行間を広げる */
+    white-space: pre-wrap;  /* 改行を正しく反映 */
+
+    /* これだと、入力欄だけ大きくしてるので、長い文章を書くとき一行分しか表記されない */
+    //(没)height: 180px;  /* 通常の2倍の高さに */
+    
+}
+  
+/* 送信ボタン */
+.form-submit_profile {
+    width: 100%;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.form-submit_profile:hover {
+    background-color: #333;
+}
+  
+  
+  
