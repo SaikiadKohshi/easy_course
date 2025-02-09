@@ -58,8 +58,8 @@
                       <%= t.intern %>
                   </fieldset>
                   <div class="deleteb">
-                   <!-- 自分が投稿したものだけ削除できるようにするためのコード -->
-                   <% if user_signed_in? && current_user.id == t.user_id %>
+                   <!-- 自分が投稿したものまたはこのサイトの経営者だけ削除できるようにするためのコード(荒らし防止用コード) -->
+                   <% if user_signed_in? && (current_user.id == t.user_id || current_user.admin?) %>
                      <%= button_to 'Delete', universitylife_path(t.id), method: :delete, class: "deletebutton" %>
                    <% end %>
                   </div>
