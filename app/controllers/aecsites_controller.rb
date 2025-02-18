@@ -5,6 +5,7 @@ class AecsitesController < ApplicationController
     #緑色：db/migrate内に格納されているモデルの名前を指している
     #水色：変数。この変数はviewで反映したい時に共通言語として使う。例、@aaとつけたらhtmlでも@aaと定めてそこから投稿や編集機能に反映させる
     def index
+       @commoncource=Aecsite.all
     end
     #def profile
     #end
@@ -88,16 +89,52 @@ class AecsitesController < ApplicationController
 
 
     
+
     #共通教養科目の削除機能
-    def destroy_commoncource
-        commoncource = Aecsite.find_by(id: params[:id])
-    
-        if commoncource
-          commoncource&.destroy #「&.」は存在しないデータベースによるエラーを防げる
-          redirect_to commoncources_aecsites_path, notice: "投稿が削除されました"
+     def destroy_commoncource
+     #def destroy
+        #find_by(id: params[:id]) は、指定された id に一致する Aecsite オブジェクトをデータベースから探し、
+        #もし見つからなければ nil を返します。find を使うと見つからなかった場合に例外が発生しますが、find_by ではそのような例外は発生しません。
+        @commoncource = Aecsite.find_by(id: params[:id])
+
+        #present? メソッドは、オブジェクトが nil または空でない場合に true を返すので、
+        #@commoncource が存在しているかどうかをチェックするために使用しています。
+        #もし @commoncource が存在すれば、削除処理を実行し、存在しなければエラーメッセージを表示します。
+        if @commoncource.present?
+
+           #下のdestroy メソッドは、データベースから対象レコードを削除します。これにより、対象の Aecsite オブジェクトが削除されます。
+           @commoncource.destroy
+
+            redirect_to commoncource_aecsites_path, notice: "投稿が削除されました"
         else
-          redirect_to commoncources_aecsites_path, alert: "投稿が見つかりません"
+            redirect_to commoncource_aecsites_path, alert: "投稿が見つかりません"
         end
+     #なぜ上のコードがうまくいくのか?
+     #なぜこの方法がうまくいったか?
+     #find_by の使用: find_by を使うことで、もし指定した id の投稿が見つからない場合でもエラーが発生せず、安全に処理を続けられます。
+     #present? によるチェック: present? を使って、オブジェクトが存在するかどうかを確認し、存在しない場合に適切なエラーメッセージを表示できるようにしています。
+     #リダイレクトとメッセージの表示: 削除成功や失敗に応じて適切なメッセージを表示し、ユーザーにフィードバックを提供しています。
+
+
+        #@commoncource = Aecsite.find(params[:id])
+        #if @commoncource
+         # @commoncource.destroy
+          #  redirect_to commoncources_aecsites_path, notice: "投稿が削除されました"
+        #else
+          #  redirect_to commoncource_aecsites_path, alert: "投稿が見つかりません"
+        #end
+      
+        #@commoncource = Aecsite.find(params[:id])
+        #@commoncource.destroy
+        #redirect_to commoncources_aecsites_path, notice: "投稿が削除されました"
+        
+    
+        #if commoncource
+         # commoncource&.destroy #「&.」は存在しないデータベースによるエラーを防げる
+         # redirect_to commoncources_aecsites_path, notice: "投稿が削除されました"
+        #else
+          # redirect_to commoncource_aecsites_path, alert: "投稿が見つかりません"
+        #end
       end
 
     #工学科共通科目の削除機能
@@ -126,9 +163,9 @@ class AecsitesController < ApplicationController
     #1. 共通の削除メソッドを使用
     #destroy_aecsite メソッドを再利用して、各削除アクションで使用できるようにします。また、共通のルーティングで扱えるようにします。
     # 投稿した後、削除ボタンを押して削除できるための共通削除機能を利用する削除アクション
-    def destroy_commoncource
-       destroy_aecsite(params[:id], commoncource_aecsites_path)
-    end
+    #def destroy_commoncource
+     #  destroy_aecsite(params[:id], commoncource_aecsites_path)
+    #end
 
     #def destroy_tchcourcelist
      #  destroy_aecsite(params[:id], tchcourcelist_aecsites_path)
@@ -171,16 +208,16 @@ class AecsitesController < ApplicationController
 
 
 
-    def destroy_aecsite(id, redirect_path)
-        aecsite = Aecsite.find_by(id: id)
+    #def destroy_aecsite(id, redirect_path)
+     #   aecsite = Aecsite.find_by(id: id)
     
-        if aecsite
-          aecsite.destroy
-          redirect_to redirect_path, notice: "投稿が削除されました"
-        else
-          redirect_to redirect_path, alert: "投稿が見つかりません"
-        end
-    end
+      #  if aecsite
+       #   aecsite.destroy
+       #   redirect_to redirect_path, notice: "投稿が削除されました"
+      #  else
+       #   redirect_to redirect_path, alert: "投稿が見つかりません"
+      #  end
+    #end
 
 
 end

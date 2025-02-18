@@ -54,6 +54,24 @@ Rails.application.routes.draw do
        #post :create_tlcource
 
     end #collect doのend
+
+
+
+    #共通教養科目の削除機能追加
+    member do
+     delete :destroy_commoncource 
+      #この「destroy_commoncource」をコントローラーで「def destroy_commoncource」と
+      #書くことで、削除機能ができるようになる
+      #正確には削除機能を呼び出すルートが設定され、コントローラー内の対応するアクションで削除処理を実行することができる 
+
+      #この「destroy_commoncource」をルーティング内で指定することで、
+      #コントローラーに同名のアクション「def destroy_commoncource」を実装すれば
+      #削除機能が動作するようになります。
+
+      #なぜそうなるか：
+      #delete :destroy_commoncource は、HTTPのDELETEリクエストを送るためのルートを定義します。このルートは、aecsites/:id/destroy_commoncource というURLパターンにマッチします。
+      #destroy_commoncource がコントローラーに実装されている場合、そのアクションが呼ばれます。このアクションでデータベースのレコードを削除し、削除後にリダイレクトやメッセージを表示します。
+    end
   end
 
   #電子情報工学科のリンク先を示す全体のコード

@@ -14,7 +14,7 @@
     <!-- eachと<div>はeachを上に<div>を下に書くまた、</div>とendは</div>を上にendを下に書く -->
     <% @commoncources.each do |t| %>
     <div class="informationlist">
-      <fieldset class="postil" id="short">
+      <fieldset class="postli" id="short">
         <div id="textc">
           <div id="shorttext">
             <label for="lectures">
@@ -24,7 +24,7 @@
           </div>
           <div id="shorttrxt">
             <label for="professors">
-              <span class="poschar">教授</span>：
+              <span class="postchar">教授</span>：
                 <%= t.professor %>
             </label>
           </div>
@@ -51,10 +51,17 @@
             </label>
           </div>
         </div>
-          <div id="delete">
+          <div id="deleteb">
             <!-- 自分が投稿したものまたはこのサイトの経営者だけ削除できるようにするためのコード(荒らし防止用コード) -->
             <% if user_signed_in? && (current_user.id == t.user_id || current_user.admin?) %>
-              <%= button_to 'Delete', destroy_commoncource_aecsites_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
+              <!-- routerでdelete :destroy_commoncourceと定義しておるので下記のように書く -->
+              <%= button_to 'Delete', destroy_commoncource_aecsite_path(t.id), method: :delete, data: { confirm: '本当に削除しますか？' } ,class:'deletebutton' %>
+              <!-- 補足 -->
+              <!-- #destroy_commoncource_aecsite_path(t.id) は、routes.rb ファイルで delete :destroy_commoncource と定義したルートに基づいています。-->
+              <!-- #destroy_commoncource_aecsite_path は、特定の Aecsite を削除するためのリクエストURLを生成します。-->
+              <!-- #このパスは、例えば /aecsites/:id/destroy_commoncource のようなURLになります（id は t.id によって動的に指定されます）。-->
+              <!-- #ルーティングで delete :destroy_commoncource と指定したことで、destroy_commoncource アクションが DELETE メソッドに対応するようになります。-->
+              <!-- #この DELETE メソッドに対応したアクションがコントローラーで def destroy_commoncource として定義されています。 -->
             <% end %>
           </div>
       </fieldset>
