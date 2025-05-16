@@ -36,23 +36,23 @@
             <% if t.study.present? || t.parttimejob.present? || t.circle.present? || t.daily.present? || t.intern.present? %>
               <div id=postU>
                 <div id="postlist"> 
-                  <fieldset>
+                  <fieldset class="items">
                     <legend class="itemdisplay">学業</legend>
                     <%= t.study %>
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="items">
                     <legend class="itemdisplay">バイト</legend>
                     <%= t.parttimejob %>
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="items">
                     <legend class="itemdisplay">サークル</legend>
                     <%= t.circle %>
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="items">
                     <legend class="itemdisplay">日常生活</legend>
                     <%= t.daily %>
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="items">
                     <legend class="itemdisplay">インターン</legend>
                     <%= t.intern %>
                   </fieldset>
